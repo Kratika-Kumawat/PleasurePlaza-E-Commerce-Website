@@ -15,4 +15,7 @@ urlpatterns = [
     path('books',views.books,name="books"),
     path('headphones',views.headphones,name="books"),
     path('mobilead',views.mobilead,name="mobilead"),
+    path('fashionad',views.fashionad,name="fashionad"),
+    path('electronicad',views.electronicad,name="electronicad"),
+    path('appad',views.appad,name="appad"),
 ]

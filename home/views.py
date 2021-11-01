@@ -262,3 +262,55 @@ def mobilead(request):
         "m1": M[0], "m2": M[1:]
     }
     return render(request, "mobilead.html",data)
+
+def fashionad(request):
+    cat1="Men"
+    cat2="Women"
+    cat3="Kids"
+    f=Fashion.objects.filter(gender=cat1)
+    f1=Fashion.objects.filter(gender=cat2)
+    f2=Fashion.objects.filter(gender=cat3)
+    print(f)
+    return render(request, "fashionad.html",{'men':f,'wmen':f1,'kid':f2})
+
+def electronicad(request):
+    h = Headphones.objects.all()
+    H = []
+    for i in range(0, len(h), 5):
+        H.append(h[i:i+5])
+    l = Laptop.objects.all()
+    L = []
+    for i in range(0, len(l), 5):
+        L.append(l[i:i+5])
+    tab = Tablets.objects.all()
+    Tab = []
+    for i in range(0, len(tab), 5):
+        Tab.append(tab[i:i+5])
+    c = Camera.objects.all()
+    C = []
+    for i in range(0, len(c), 5):
+        C.append(c[i:i+5])
+    return render(request, "electronicad.html",{"h1": H[0], "h2": H[1:],"l1": L[0], "l2": L[1:],"tab1": Tab[0], "tab2": Tab[1:],"c1": C[0], "c2": C[1:]})
+
+def appad(request):
+    t = Television.objects.all()
+    T = []
+    for i in range(0, len(t), 5):
+        T.append(t[i:i+5])
+    w = Washing_Machine.objects.all()
+    W = []
+    for i in range(0, len(w), 5):
+        W.append(w[i:i+5])
+    r = Refrigerator.objects.all()
+    R = []
+    for i in range(0, len(r), 5):
+        R.append(r[i:i+5])
+    a = Air_Conditioner.objects.all()
+    A = []
+    for i in range(0, len(a), 5):
+        A.append(a[i:i+5])
+    c = Camera.objects.all()
+    C = []
+    for i in range(0, len(c), 5):
+        C.append(c[i:i+5])
+    return render(request, "appad.html",{"t1": T[0], "t2": T[1:],"w1": W[0], "w2": W[1:],"r1": R[0], "r2": R[1:],"a1": A[0], "a2": A[1:],"c1": C[0], "c2": C[1:]})
