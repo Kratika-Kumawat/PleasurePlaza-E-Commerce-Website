@@ -1,0 +1,876 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="icon" href="{%static 'images/fav.png'%}" type="image/gif">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+        <title>PleasurePlaza! Here to make your life easier.</title>
+        <style>
+            .search-bar {
+                width: 550px;
+            }
+
+            .navbar-dark .navbar-nav .nav-link {
+                color: white;
+                font-size: 1.18rem;
+                font-weight: 500;
+            }
+
+            .navbar-brand {
+                font-size: 25px;
+                font-weight: 750;
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .sub-navbar {
+                position: relative;
+                min-height: 40px;
+                color: #000;
+                width: 100%;
+                z-index: 6;
+                background-color: #fff;
+                box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
+            }
+
+
+
+            .sub-navbar2 {
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 40px;
+                margin: auto;
+                position: relative;
+                max-width: 1248px;
+                font-family: 'Roboto', sans-serif;
+
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .cat {
+                font-weight: 600;
+                text-decoration: none;
+
+            }
+
+            .cat:hover {
+                color: #2874f0;
+            }
+
+            .product {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                min-width: 978px;
+                max-width: 1680px;
+                padding: 8px;
+                background-color: rgb(238, 238, 238);
+            }
+
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .pro-img {
+                max-width: 280px;
+
+            }
+
+            .pro-info {
+                background-color: white;
+                margin-left: 8px;
+                width: 100%;
+            }
+
+            .para {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                margin: 0px;
+                padding: 0px
+            }
+
+            .para2 {
+                padding: 0px 0 4px;
+                margin: 0 10px;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+            }
+
+            .head-mob {
+                background: #fff;
+                padding: 12px 16px 0;
+                border-bottom: 1px solid #f0f0f0;
+                min-height: 72px;
+            }
+
+            .cardd {
+                line-height: 1;
+                padding: 24px 0 30px 24px;
+                display: block;
+                position: relative;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+
+            .pro-name {
+
+                font-size: 18px;
+                display: block;
+                cursor: pointer;
+            }
+
+            .pro-high {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+            .pro-high li {
+                /* Default bullets style erased */
+                list-style: none;
+            }
+            .pro-high li::before{
+                color: #878787;
+                content: "\2022";
+                display: inline-block;
+                width: 1em;
+                
+                font-weight: bold;
+            }
+
+            .reviews {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 14px;
+                word-spacing: 0px;
+                color: #878787;
+                margin-left: 8px;
+                margin-top: 5px;
+            }
+            .price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 25px;
+                font-weight: 700;
+            }
+
+            .offer {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: -0.2px;
+                line-height: 13px;
+                text-decoration: none solid rgb(56, 142, 60);
+                word-spacing: 0px;
+                color: #388E3C;
+                margin-top: 12px;
+            }
+
+            .total-price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 14px;
+                text-decoration: line-through solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color:  #878787;
+                padding: 10px 0 0 0;
+                
+            }
+
+            .assure {
+                display: inline-block;
+                vertical-align: top;
+                font-size: 0;
+                padding-bottom: 4px;
+                margin-left: 20px;
+                margin-top: 3px;
+            }
+
+            .mainfooter {
+                background-color: #172337;
+                height: 352.6px;
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+            }
+
+            .cols {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 400;
+                display: block;
+                line-height: 24px;
+            }
+
+            .link-light {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                ;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light:hover {
+                color: #f8f9fa;
+                text-decoration: underline;
+            }
+
+            .subfooter {
+                height: 237.8px;
+                width: 1367.28px;
+                margin: 0 0 0 65px;
+                padding: 40px 0 0 0;
+            }
+
+            .row {
+                --bs-gutter-x: 0;
+
+            }
+
+            .head {
+                color: #878787;
+                font-size: 12px;
+                font-weight: 400;
+                margin-bottom: 13px;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .lower-footer {
+                border-top: 1px solid #454d5e;
+                padding: 25px 0;
+                margin-top: 40px;
+                width: 100%;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-justify-content: space-evenly;
+                -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+            .para-footer {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+                line-height: 17px;
+            }
+
+            .para2-footer {
+                border-left: 1px solid #454d5e;
+                padding: 0 25px 0 25px;
+                height: 131.4px;
+                width: 283.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .para-footer p {
+                margin: 0;
+                padding: 0;
+            }
+
+            .para3-footer {
+                margin: 0 0 10px 0;
+                padding: 0 0 0 14px;
+                height: 166.6px;
+                width: 246.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .link2 {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .copyright {
+                color: #f8f9fa;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 14px;
+            }
+
+            .link-light2 {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light2:hover {
+                color: #f8f9fa;
+            }
+
+            .footer-detail div {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+
+            .footer-detail h2 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail h3 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail p {
+                color: #878787;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                margin: 0px;
+                padding: 0px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid ps-5 ms-5">
+                <a class="navbar-brand ps-5 ms-5" href="#">PleasurePlaza</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <form class="d-flex search-bar">
+                    <input class="form-control me-2" type="search" placeholder="Search for products,brands and more"
+                        aria-label="Search">
+                    <button class="btn btn-success bi bi-search" type="submit"></button>
+                </form>
+
+                <div class="collapse navbar-collapse ms-5 ps-5" id="navbarSupportedContent">
+                    <div class="d-flex me-4 ms-5 ps-5" style="margin-left: 15px;">
+                        <a href="login.html" class="btn btn-outline-light">Login</a>
+                    </div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown me-4">
+                            <a class="nav-link dropdown-toggle card-btn" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">SignUp</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="d-flex me-4">
+                                <a href="" class="btn bi bi-cart3 cart-btn btn-dark"> Cart <span
+                                        class="badge rounded-pill bg-danger">0</span></a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </nav>
+
+        <!-- SUB NAVBAR -->
+        <nav>
+            <div class="sub-navbar">
+                <div class="sub-navbar2">
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Mobiles</a>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Fashion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/fashion/Men">Men</a></li>
+                            <li><a class="dropdown-item" href="/fashion/Women">Women</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/fashion/Kids">Kids</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronics
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/laptop">Laptops</a></li>
+                            <li><a class="dropdown-item" href="/tablets">Tablets</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/headphones">Headphones</a></li>
+                            <li><a class="dropdown-item" href="/camera">Cameras</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Appliances
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="television">Televisions</a></li>
+                            <li><a class="dropdown-item" href="washing_machine">Washing Machines</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="refrigerator">Refrigerators</a></li>
+                            <li><a class="dropdown-item" href="air_conditioners">Air Conditioners</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Books</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- showing products -->
+        <!--  -->
+        <div class="product">
+            <div class="d-flex flex-row">
+                <div class="pro-img">
+                    <img src="{%static 'images/poster_cam.jpg' %}" alt="" width="250px" height="750px">
+                </div>
+                <div class="d-flex flex-col pro-info">
+                    <div>
+                        <div class="head-mob">
+                            <p class="para">
+                                Cameras, especially digital cameras, have become the rage in recent times. Most of the photography enthusiasts have armed themselves with dslr camera recently from brands like Canon, Nikon, Sony, GoPro cameras and are travelling to picturesque locations to capture stunning moments and convert them into photographic images. Although point and shoot cameras from Kodak and Sony are the still the preferred version of many expert photographers, digital cameras are the ones that have expanded the possibilities of experimenting with different styles of photography and help amateurs to click good pictures. Camera bags, tripods and lenses are significant accessories that photographers need to carry with them always.
+                            </p>
+                            <div class="d-flex justify-content-start" style="padding-top:5px;">
+                                <h5>Cameras</h5>
+                                <h6 style="padding-top: 3px;
+                                margin-left: 12px;">(Showing 1-6 products of 6 Products)</h6>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <h6 style="margin-top: 2px;font-family: Roboto, Arial, sans-serif;">Sort By</h6>
+                                <p class="para2">Popularity</p>
+                                <p class="para2">Price--Low To High</p>
+                                <p class="para2">Price--High To Low</p>
+                            </div>
+                        </div>
+                        {% for i in cam %}
+                        <div>
+                            <div class="cardd">
+                                <a href="" style="text-decoration:none">
+                                    <div class="row">
+                                        <div class="col-md-2 d-flex justify-content-center">
+                                            <img class="img-fluid rounded-start" src="{{i.img1.url}}" alt="..." style="height: 130px;
+                                            width: 190px;
+                                            margin-top: 20px;">
+                                            <!-- <span class="heart">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-suit-heart-fill"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" />
+                                                </svg>
+                                            </span> -->
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div style="margin-left: 25px">
+                                                <div class="pro-name cat link-dark">
+                                                    {{i.product_name}}
+                                                </div>
+                                                <div style="margin-top: 10px;"
+                                                    class="link-dark d-flex justify-content-start">
+                                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="10"
+                                                                height="10" style="vertical-align: baseline;"
+                                                                fill="currentColor" class="bi bi-star-fill"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                            </svg></span>
+                                                        <div class="reviews">
+                                                            {% for j in r1 %}
+                                                            {% if forloop.counter == forloop.parentloop.counter %}
+                                                            {{j}}&nbspRatings &
+                                                            {% endif %}
+                                                            {% endfor %}
+                                                            {% for j in r2 %}
+                                                            {% if forloop.counter == forloop.parentloop.counter %}
+                                                            {{j}}&nbspReviews
+                                                            {% endif %}
+                                                            {% endfor %}
+
+
+                                                        </div>
+                                                    </p>
+
+                                                </div>
+                                                <div style="margin-top:13px;line-height: 20px;" class="link-dark pro-high">
+                                                    {% for j in h %}
+                                                    {% if forloop.counter == forloop.parentloop.counter %}
+                                                    {% for k in j %}
+                                                    <li>{{k}}</li>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                    <li>{{i.warranty}}</li>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="d-flex flex-row">
+                                                <div class="price link-dark">
+                                                    ₹{{i.price}}
+                                                </div>
+                                                <div class="assure">
+                                                    <img src="{%static 'images/logo.png '%}" alt="" height=20px;
+                                                        width=77px;>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row link-dark">
+                                                {% for j in t %}
+                                                {% if forloop.counter == forloop.parentloop.counter %}
+                                                <p class="total-price">₹{{j}}</p>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% for j in o %}
+                                                {% if forloop.counter == forloop.parentloop.counter %}
+                                                <p class="offer">&nbsp&nbsp&nbsp{{j}}% off</p>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 25px;">
+            <div class="footer-detail">
+                <div>&nbsp;
+                    <h2>Buy Camera Online – Document Life’s Best Moments</h2>
+                    &nbsp;
+                    
+                    <p>In this time and age when social media is a major platform for visibility, the need for good-quality pictures has multiplied sevenfold. A picture taken on a smartphone may be good, but it’s not the same as one taken with a good-quality camera. Smart ones give you plenty of options to play around with lighting, effect, and distance so you have full control of your shots. Start with a basic point-and-shoot camera if you’re a beginner and you can move on to more intense DSLR ones as you get more confident in your photography skills.</p>
+                    &nbsp;
+                    
+                    <p><b>Shop Smartly and Conveniently</b></p>
+                    &nbsp;
+                    
+                    <p>One of the greatest things about shopping online is that you can check out the latest cameras and compare different models while you’re at home in your pyjamas, sipping on chilled drinks and binge eating comfort food. Online shopping sites also pamper you with enticing discounts on the best-selling cameras from Nikon, Canon, Manfrotto, Sony, Envie, and Sigma regardless of whether it’s sale season or not.<span>&nbsp;</span></p>
+                    &nbsp;
+                    
+                    <p>Pout, pose and click! Don’t you just love cameras? Imagine a world without selfies, no profile pictures, no photography exhibitions and nothing to capture the breath-taking sunset. Basically, imagine a world without cameras. Difficult, right? It doesn’t matter if you are not trained as a photographer, you can still take good pictures provided you have the right camera. And if you are a professional, then there is no better way to improve your skills other than upgrade what you already own. So, knowing a thing or two about the different types of cameras is a must. Give this article a quick read, and make a wise buying decision.</p>
+                    &nbsp;
+                    
+                    <p><b>DSLR cameras to get the most beautiful snapshot of a moment</b></p>
+                    &nbsp;
+                    
+                    <p>DSLR cameras (Digital Single-Lens Reflex Camera) are being widely bought and used today for various reasons that make them hugely popular. With large sensor area, high shutter speeds ( can capture up to 10 frames per second), much better sensitivity to light, ability to use different lenses for different situations, great control over the depth of field( the ability to create beautiful bokeh) and many more such reasons prompt photographers into buying DSLR cameras online. It doesn't matter whether you want to click the photo of a wide landscape for which you would need a wide-angle lens like the Canon 24mm f/2.8 lens, or you want to do some bird photography using the telephoto lens like the Nikon 300mm f/4 lens, or clock someone's portrait using portrait lens, they all can be mounted based on your requirement in to the DSLR camera. Go for a Nikon D3300 18-55mm f/3.5-5.6 DSLR camera, Canon EOS 13000 DSLR, Nikon D 810, Pentax K5, Sony Alpha ILCE 6000Y or any such best DSLR cameras. Browse to find the best DSLR camera price online to shop for it at the most reasonable rate.</p>
+                    &nbsp;
+                    
+                    <p><b>What are the Different Types of Cameras?</b></p>
+                    &nbsp;
+                    
+                    <p><span><b><a href="/cameras/instant-cameras/pr?sid=jek,p31,ysu">Instant Cameras</a></b></span></p>
+                    &nbsp;
+                    
+                    <p>The name says it all, instant cameras are a cool balance of vintage cameras that come with film rolls and modern digital cameras. Fujifilm has an adorable collection of colourful instant cameras with some of them shaped like Hello Kitty. These cameras instantly roll out copies of the pictures you click. Some versions of these cameras feature a mirror near the lens so you can take selfies. Play around with your instant camera, take close up shots of objects or capture dreamy images by adjusting the brightness of your camera. Like all cameras, instant ones are also usually powered by batteries.</p>
+                    &nbsp;
+                    
+                    <p><b>Point-and-shoot&nbsp;</b></p>
+                    &nbsp;
+                    
+                    <p><a href="/cameras/point-and-shoot/pr?sid=jek,p31,nxa">Point and shoot cameras</a> are still cameras that are very compact in size and of lightweight that you can easily slip them into your pockets. They are primarily meant for simple photography operation with a fixed lens that has either focus-free or autofocus capability. You don't need to keep changing lenses while taking pictures in different situations and they also have a massive depth of field. Nikon B700, Sony DSC-W830, Nikon Coolpix B500, Canon IXUS 185 point and shoot cameras are some good ones using which you can learn basic photography. You can adjust the settings like mode and exposure automatically, so you don’t have to do much other than holding the camera steadily. Also, they are usually compact, so you can take them along while going to parties or trips, and capture all your favourite moments. However, advanced point-and-shoot ones come with better features, and are quite a rage these days.</p>
+                    &nbsp;
+                    
+                    <p>A couple of things to check with DSLR cameras is their MegaPixel count which describes the resolution, battery type, sensor type and size, and shutter speed. DSLR cameras with good sensor give you pictures that are sharp and detailed even when enlarged. A camera’s sensor size gives you an idea of how wide a view it can cover. The processor of a DSLR camera is another detail to look into. Cameras with a good processor reduce noise and give you equally crisp pictures in both bright and dim lighting. DSLR cameras like the Canon EOS 1300D feature Wi-Fi connectivity and built-in NFC technology which let you transfer pictures and videos from your camera to your smartphone with a finger tap.</p>
+                    &nbsp;
+                    
+                    <p><b>DSLR Cameras&nbsp;</b></p>
+                    &nbsp;
+                    
+                    <p>A couple of things to check with <a href="/cameras/dslr-mirrorless/pr?sid=jek,p31,trv">DSLR cameras</a> is their MP, battery type, sensor type and size, and shutter speed. DSLR cameras with good sensor give you pictures that are sharp and detailed even when enlarged. A camera’s sensor size gives you an idea of how wide a view it can cover. The processor of a DSLR camera is another detail to look into. Cameras with a good processor reduce noise and give you equally crisp pictures in both bright and dim lighting. DSLR cameras like the Canon EOS 1300D feature Wi-Fi connectivity &amp; <a href="/q/4k-video-camera">4K Video Camera</a> and built-in NFC technology which let you transfer pictures and videos from your camera to your smartphone with a finger tap.</p>
+                    
+                    
+                    
+                    <p><b>Action Cameras</b></p>
+                    &nbsp;
+                    
+                    <p>Don’t want to be weighed down with heavy equipment when hiking? Ditch your DSLR camera for compact <a href="/cameras/sports-action/pr?sid=jek,p31,s3q">action camera</a>s. These cameras are more travel-friendly and are usually waterproof. They can be mounted on almost any surface which helps when you want to click pictures of the view from different angles. Action cameras with the voice control feature are innovative and let you enjoy hands-free control of your camera so you can concentrate on your activity.</p>
+                    
+                    
+                    
+                    <p><b>Mirrorless&nbsp;</b></p>
+                    &nbsp;
+                    
+                    <p>These cameras are not that popular when it comes to their features. They usually have interchangeable lenses and don’t have the usual mirror, which makes them a lightweight and compact option when compared to DSLR cameras.</p>
+                    
+                    <p><b>Camcorder&nbsp;</b></p>
+                    &nbsp;
+                    
+                    <p><span>A combination of a video camera and a video recorder, a <a href="/cameras/camcorders/pr?sid=jek,p31,enu">camcorder</a> is great for recording. Whether you want to record Mother Nature at its best or wish to record your child’s first stage performance, just buy a camcorder that will let you record without having to do much. The new models also have the luxury of a camera, as they allow you to take pictures as well.</span></p>
+                    
+                    <p><b>Sports and Action Cameras</b></p>
+                    &nbsp;
+                    
+                    <p>Don’t want to be weighed down with heavy equipment when hiking? Get yourself a compact action camera. Sports and Action cameras are more travel-friendly and are usually waterproof. They can be mounted on almost any surface which helps when you want to click pictures of the view from different angles. Action cameras with the voice control feature are innovative and let you enjoy hands-free control of your camera so you can concentrate on your activity. The <a href="/q/gopro-hero-7-black">Gopro Hero 7 Black</a>, GoPro Hero 5 Sports &amp; Action camera, Sony HDR -AS300, Mezire <a href="/q/hd-camera">HD</a> 130 degree wide adventure camera, SJCAM 4000 camera and many more are available online at low prices</p>
+                    
+                    <p>Now you can sit back at home read the reviews of different models, know camera price list online, and buy cameras at online shopping. Bring home a camera today, and capture each and every moment to reminisce them later in life.</p>
+                    
+                    
+                    
+                    <p><b>Cameras - Frequently Asked Questions</b></p>
+                    &nbsp;
+                    
+                    <p><b>1. Why should I buy a DSLR camera?</b></p>
+                    &nbsp;
+                    
+                    <p>Digital Single Lens Reflex (DSLR) cameras are being widely bought and used today for various reasons that make them hugely popular. With large sensor area, high shutter speeds( can capture up to 10 frames per second), much better sensitivity to light, ability to use different lenses for different situations, great control over the depth of field( the ability to create beautiful bokeh) and many more such reasons prompt photographers into buying DSLR cameras online. These let you change lenses and hence you can manually set exposure and focus. They deliver crispier and cleaner images as they have larger internal image sensors than point-and-shoot cameras.</p>
+                    
+                    
+                    
+                    <p><b>2. What resolution do I need to get sharp photos?</b></p>
+                    &nbsp;
+                    
+                    <p>For printing out decently clear photographs you can use cameras with the resolution between 16 MP to 24 MP. The higher the resolution, the clearer will be the photos. If you only wish to post photos on the web or have a soft copy of the same, you don't really need cameras with very high resolution. You can go for Canon EOS 100D DSLR camera which is of 18 MP or cameras from Nikon, Sony and other good brands.</p>
+                    
+                    
+                    
+                    <p><b>3. What is the difference between actual pixel count and effective pixel count?</b></p>
+                    &nbsp;
+                    
+                    <p><span>Some brands publish two-pixel count numbers. These are the actual and effective pixel count numbers. The actual pixel count number is the actual pixel numbers present on the sensor. On the other hand, effective number is the number of pixels on the sensor that are used for image formation. All the pixels are not used for image formation.</span></p>
+                    
+                    
+                    
+                    <p><b>4. Which are some of the good digital cameras under Rs 30,000?</b></p>
+                    &nbsp;
+                    
+                    <p><span>A number of good brands manufacture cameras under Rs 30,000. You can go for some of the best brands as these will last long, like Nikon D3400 DSLR Camera Body with Single Lens- having an aperture size of f/3.5-5.6 and focal length of 18-55 mm. You can also go for Canon EOS 1300D DSLR Camera Body with Single Lens – having an aperture size of f/3.5-5.6, 18-55mm focal length and 18 MP resolution.</span></p>
+                    
+                    
+                    
+                    <p><b>5. What are the factors one must look at while buying a camera?</b></p>
+                    &nbsp;
+                    
+                    <p>Most of us only look at the resolution/ the pixel count while buying a big or <a href="/q/small-cameras">small camera</a>. Although this is an important feature, there are various other aspects that you need to consider. Some of these are the pixel size, sensor size, focal length, aperture size among others. Each of these determines the clarity of the photo by controlling light.</p>
+                    
+                    
+                    
+                    <p><b>India's Top Best Cameras in 2019&nbsp;</b></p>
+                    &nbsp;
+                    
+                    <p>1. Canon 1300D</p>
+                    
+                    <p>2. Canon 1500D</p>
+                    
+                    <p>3. Canon 3000D&nbsp;</p>
+                    
+                    <p>4. Nikon D3400</p>
+                    
+                    <p>5. Nikon D5300&nbsp;</p>
+                    
+                    <p>6. Gopro Hero Sports &amp; Action Camera</p>
+                    
+                    <p>7. Canon Point &amp; shoot cameras</p>
+                    
+                    <p>8. Procus and Noise Play action camera&nbsp;</p>
+                    
+                    <p>9. <a href="/q/instax-mini-9">Instax Mini 9</a></p>
+                    
+                    <p>10. <a href="/q/dji-osmo">Dji Osmo</a></p>
+                    &nbsp;
+                    
+                    
+                    </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="mainfooter">
+            <div class="subfooter row">
+                <div class="d-flex">
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;">ABOUT</div>
+                        <a class="link-light" href="contactus">Contact Us</a>
+                        <a class="link-light" href="aboutus">About Us</a>
+                        <a class="link-light" href="careers">Careers</a>
+                        <a class="link-light" href="stories">PleasurePlaza Stories</a>
+                        <a class="link-light" href="press">Press</a>
+                        <a class="link-light" href="wholesales">PleasurePlaza Wholesales</a>
+                        <a class="link-light" href="info">Corporate Information</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> HELP</div>
+                        <a class="link-light" href="payments">Payments</a>
+                        <a class="link-light" href="shipping">Shipping</a>
+                        <a class="link-light" href="c&r">Cancellation & Returns</a>
+                        <a class="link-light" href="faq">FAQ</a>
+                        <a class="link-light" href="report">Report Infringement</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> POLICY</div>
+                        <a class="link-light" href="policy">Return Policy</a>
+                        <a class="link-light" href="toc">Terms Of Use</a>
+                        <a class="link-light" href="security">Security</a>
+                        <a class="link-light" href="privacy">Privacy</a>
+                        <a class="link-light" href="sitemap">Sitemap</a>
+                        <a class="link-light" href="epr">EPR Compliance</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> SOCIAL</div>
+                        <a class="link-light" href="fb">Facebook</a>
+                        <a class="link-light" href="twitter">Twitter</a>
+                        <a class="link-light" href="yt">YouTube</a>
+                        <a class="link-light" href="ig">Instagram</a>
+
+                    </div>
+                    <div>
+                        <div class="d-flex flex-column">
+                            <div class="para2-footer">
+                                <div class="head " style="height:16.8px;">
+                                    <span>Mail Us:</span>
+                                </div>
+
+                                <div class="para-footer">
+                                    <p>PleasurePlaza Internet Private Limited,</p>
+                                    <p>Buildings Alyssa, Begonia &</p>
+                                    <p>Clove Embassy Tech Village,</p>
+                                    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                    <p>Bengaluru, 560103,</p>
+                                    <p>Karnataka, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 198.8px;
+                    width: 246.04px;">
+
+                        <div class="para3-footer d-flex flex-column">
+                            <div class="head" style="height:16.8px;">
+                                <span>Registered Office Address:</span>
+                            </div>
+
+                            <div class="para-footer">
+                                <p>PleasurePlaza Internet Private Limited,</p>
+                                <p>Buildings Alyssa, Begonia &</p>
+                                <p>Clove Embassy Tech Village,</p>
+                                <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                <p>Bengaluru, 560103,</p>
+                                <p>Karnataka, India</p>
+                                <p>CIN : U51109KA2012PTC066107</p>
+                                <p>Telephone: 1800 202 9898</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="lower-footer">
+                <div>
+                    <img src="{%static 'images/t1.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="sell">&nbsp Sell On PleasurePlaza</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t2.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="ad">&nbsp Advertise</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t3.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="gift">&nbsp Gift Card</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t4.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="help-center">&nbsp Help Center</a>
+                </div>
+                <span class="copyright">
+                    ©
+                    <!--  -->
+                    2007-2021
+                    <!--  -->
+                    <span>PleasurePlaza.com</span>
+                </span>
+                <img src="{%static 'images/t6.svg'%}">
+            </div>
+        </div>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    </body>
+
+</html>

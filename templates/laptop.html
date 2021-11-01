@@ -1,0 +1,994 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="icon" href="{%static 'images/fav.png'%}" type="image/gif">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+        <title>PleasurePlaza! Here to make your life easier.</title>
+        <style>
+            .search-bar {
+                width: 550px;
+            }
+
+            .navbar-dark .navbar-nav .nav-link {
+                color: white;
+                font-size: 1.18rem;
+                font-weight: 500;
+            }
+
+            .navbar-brand {
+                font-size: 25px;
+                font-weight: 750;
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .sub-navbar {
+                position: relative;
+                min-height: 40px;
+                color: #000;
+                width: 100%;
+                z-index: 6;
+                background-color: #fff;
+                box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
+            }
+
+
+
+            .sub-navbar2 {
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 40px;
+                margin: auto;
+                position: relative;
+                max-width: 1248px;
+                font-family: 'Roboto', sans-serif;
+
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .cat {
+                font-weight: 600;
+                text-decoration: none;
+
+            }
+
+            .cat:hover {
+                color: #2874f0;
+            }
+
+            .product {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                min-width: 978px;
+                max-width: 1680px;
+                padding: 8px;
+                background-color: rgb(238, 238, 238);
+            }
+
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .pro-img {
+                max-width: 280px;
+
+            }
+
+            .pro-info {
+                background-color: white;
+                margin-left: 8px;
+                width: 100%;
+            }
+
+            .para {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                margin: 0px;
+                padding: 0px
+            }
+
+            .para2 {
+                padding: 0px 0 4px;
+                margin: 0 10px;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+            }
+
+            .head-mob {
+                background: #fff;
+                padding: 12px 16px 0;
+                border-bottom: 1px solid #f0f0f0;
+                min-height: 72px;
+            }
+
+            .cardd {
+                line-height: 1;
+                padding: 24px 0 30px 24px;
+                display: block;
+                position: relative;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+
+            .pro-name {
+
+                font-size: 18px;
+                display: block;
+                cursor: pointer;
+            }
+
+            .pro-high {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .pro-high li {
+                /* Default bullets style erased */
+                list-style: none;
+            }
+
+            .pro-high li::before {
+                color: #878787;
+                content: "\2022";
+                display: inline-block;
+                width: 1em;
+
+                font-weight: bold;
+            }
+
+            .reviews {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 14px;
+                word-spacing: 0px;
+                color: #878787;
+                margin-left: 8px;
+                margin-top: 5px;
+            }
+
+            .price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 25px;
+                font-weight: 700;
+            }
+
+            .offer {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: -0.2px;
+                line-height: 13px;
+                text-decoration: none solid rgb(56, 142, 60);
+                word-spacing: 0px;
+                color: #388E3C;
+                margin-top: 12px;
+            }
+
+            .total-price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 14px;
+                text-decoration: line-through solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                padding: 10px 0 0 0;
+
+            }
+
+            .assure {
+                display: inline-block;
+                vertical-align: top;
+                font-size: 0;
+                padding-bottom: 4px;
+                margin-left: 20px;
+                margin-top: 3px;
+            }
+
+            .mainfooter {
+                background-color: #172337;
+                height: 353.6px;
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+            }
+
+            .cols {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 400;
+                display: block;
+                line-height: 24px;
+            }
+
+            .link-light {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                ;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light:hover {
+                color: #f8f9fa;
+                text-decoration: underline;
+            }
+
+            .subfooter {
+                height: 237.8px;
+                width: 1367.28px;
+                margin: 0 0 0 65px;
+                padding: 40px 0 0 0;
+            }
+
+            .row {
+                --bs-gutter-x: 0;
+
+            }
+
+            .head {
+                color: #878787;
+                font-size: 12px;
+                font-weight: 400;
+                margin-bottom: 13px;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .lower-footer {
+                border-top: 1px solid #454d5e;
+                padding: 25px 0;
+                margin-top: 40px;
+                width: 100%;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-justify-content: space-evenly;
+                -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+            .para-footer {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+                line-height: 17px;
+            }
+
+            .para2-footer {
+                border-left: 1px solid #454d5e;
+                padding: 0 25px 0 25px;
+                height: 131.4px;
+                width: 283.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .para-footer p {
+                margin: 0;
+                padding: 0;
+            }
+
+            .para3-footer {
+                margin: 0 0 10px 0;
+                padding: 0 0 0 14px;
+                height: 166.6px;
+                width: 246.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .link2 {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .copyright {
+                color: #f8f9fa;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 14px;
+            }
+
+            .link-light2 {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light2:hover {
+                color: #f8f9fa;
+            }
+            .sort {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 16px;
+                font-weight: 550;
+                line-height: 19.6px;
+                text-decoration: none;
+                word-spacing: 0px;
+                padding-top: 2px;
+            }
+            .footer-detail div {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+
+            .footer-detail h2 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail h3 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail p {
+                color: #878787;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                margin: 0px;
+                padding: 0px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid ps-5 ms-5">
+                <a class="navbar-brand ps-5 ms-5" href="#">PleasurePlaza</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <form class="d-flex search-bar">
+                    <input class="form-control me-2" type="search" placeholder="Search for products,brands and more"
+                        aria-label="Search">
+                    <button class="btn btn-success bi bi-search" type="submit"></button>
+                </form>
+
+                <div class="collapse navbar-collapse ms-5 ps-5" id="navbarSupportedContent">
+                    <div class="d-flex me-4 ms-5 ps-5" style="margin-left: 15px;">
+                        <a href="login.html" class="btn btn-outline-light">Login</a>
+                    </div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown me-4">
+                            <a class="nav-link dropdown-toggle card-btn" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">SignUp</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="d-flex me-4">
+                                <a href="" class="btn bi bi-cart3 cart-btn btn-dark"> Cart <span
+                                        class="badge rounded-pill bg-danger">0</span></a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </nav>
+
+        <!-- SUB NAVBAR -->
+        <nav>
+            <div class="sub-navbar">
+                <div class="sub-navbar2">
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Mobiles</a>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Fashion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/fashion/Men">Men</a></li>
+                            <li><a class="dropdown-item" href="/fashion/Women">Women</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/fashion/Kids">Kids</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronics
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="laptop">Laptops</a></li>
+                            <li><a class="dropdown-item" href="tablets">Tablets</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="headphone">Headphones</a></li>
+                            <li><a class="dropdown-item" href="camera">Cameras</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Appliances
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="television">Televisions</a></li>
+                            <li><a class="dropdown-item" href="washing_machine">Washing Machines</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="refrigerator">Refrigerators</a></li>
+                            <li><a class="dropdown-item" href="air_conditioners">Air Conditioners</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Books</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- showing products -->
+        <!--  -->
+        <div class="product">
+            <div class="d-flex flex-row">
+                <div class="pro-img">
+                    <img src="{%static 'images/poster_lap.jpg' %}" alt="" width="250px" height="750px">
+                </div>
+                <div class="d-flex flex-col pro-info">
+                    <div>
+                        <div class="head-mob">
+                            <p class="para">
+                                Shop from a wide range of laptops from HP, Dell, Lenovo, Realme, Asus, Acer, Vaio & more
+                                at India's Best Online Shopping Store. Avail benefits such as free shipping, no cost
+                                EMI, product exchange, extended warranty and assured buyback. PleasurePlaza offers laptops
+                                for all kinds of need- Students, Work, Gaming, Thin & Light, Premium etc. Buy laptops
+                                that fit in your budget and explore best deals- Under 30,000, Under 40,000 & Under
+                                50,000. Shop laptop by latest processors and built- Intel Laptops & Ryzen Powered
+                                Laptops.
+
+                                Choose among: Business Laptops | Entertainment Laptops | Gaming Laptops | Everyday use
+                                laptops
+
+                                Trending: Back to College Season, Realme Book(slim), Laptops at upto 40% Off, Acer
+                                Aspire 7, Asus Chromebook
+
+                                GST Invoice Available! Save up to 28% with GST input credit on business Purchase. Check
+                                out our Laptops and Desktops GST Store
+
+
+                            </p>
+
+                            <div class="d-flex justify-content-start" style="padding-top:5px;">
+                                <h5>Laptops</h5>
+                                <h6 style="padding-top: 3px;
+                                margin-left: 12px;">(Showing 1-6 products of 6 Products)</h6>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <span class="sort">
+                                    Sort By
+                                </span>
+                                <p class="para2">Popularity</p>
+                                <p class="para2">Price--Low To High</p>
+                                <p class="para2">Price--High To Low</p>
+                            </div>
+                        </div>
+                        {% for i in laptop %}
+                        <div>
+                            <div class="cardd">
+                                <a href="" style="text-decoration:none">
+                                    <div class="row">
+                                        <div class="col-md-2 d-flex justify-content-center">
+                                            <img class="img-fluid rounded-start" src="{{i.img1.url}}" alt="..." style="height: 145px;
+                                            width: 220px;
+                                            margin-top: 40px;">
+                                            <!-- <span class="heart">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-suit-heart-fill"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" />
+                                                </svg>
+                                            </span> -->
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div style="margin-left: 25px">
+                                                <div class="pro-name cat link-dark">
+                                                    {{i.product_name}}
+                                                </div>
+                                                <div style="margin-top: 10px;"
+                                                    class="link-dark d-flex justify-content-start">
+                                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="10"
+                                                                height="10" style="vertical-align: baseline;"
+                                                                fill="currentColor" class="bi bi-star-fill"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                            </svg></span>
+                                                        <div class="reviews">
+                                                            {% for j in r1 %}
+                                                            {% if forloop.counter == forloop.parentloop.counter %}
+                                                            {{j}}&nbspRatings &
+                                                            {% endif %}
+                                                            {% endfor %}
+                                                            {% for j in r2 %}
+                                                            {% if forloop.counter == forloop.parentloop.counter %}
+                                                            {{j}}&nbspReviews
+                                                            {% endif %}
+                                                            {% endfor %}
+
+
+                                                        </div>
+                                                    </p>
+
+                                                </div>
+                                                <div style="margin-top:13px;line-height: 20px;"
+                                                    class="link-dark pro-high">
+                                                    {% for j in h %}
+                                                    {% if forloop.counter == forloop.parentloop.counter %}
+                                                    {% for k in j %}
+                                                    <li>{{k}}</li>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                    <li>{{i.warranty}}</li>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="d-flex flex-row">
+                                                <div class="price link-dark">
+                                                    ₹{{i.price}}
+                                                </div>
+                                                <div class="assure">
+                                                    <img src="{%static 'images/logo.png '%}" alt="" height=20px;
+                                                        width=77px;>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row link-dark">
+                                                {% for j in t %}
+                                                {% if forloop.counter == forloop.parentloop.counter %}
+                                                <p class="total-price">₹{{j}}</p>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% for j in o %}
+                                                {% if forloop.counter == forloop.parentloop.counter %}
+                                                <p class="offer">&nbsp&nbsp&nbsp{{j}}% off</p>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="padding: 25px;">
+            <div class="footer-detail">
+
+                <h2>Buy laptops online at the best prices in India</h2>
+
+
+                <div>Laptops, since the time of their advent, have managed to set a trend that completely
+                    altered the way people work with computers. The main reason behind this is the portability
+                    factor that leads to instant access to information. With time, many variants of laptops came
+                    into being, like the&nbsp;<span><a
+                            href="/laptops/~notebook/pr?sid=6bo,b5g">notebook</a></span>,&nbsp;<span><a
+                            href="/laptops/ultrabook~type/pr?sid=6bo,b5g">ultrabook</a></span>,&nbsp;<span><a
+                            href="/laptops/netbook~type/pr?sid=6bo,b5g">netbook</a>,<a
+                            href="/laptops/~2-in-1-laptops/pr?sid=6bo,b5g">2 in one Laptops</a></span>&nbsp;and
+                    more. Choosing the best laptop online that satisfies your requirements as a user is very
+                    important. The best laptop brands including <a href="/laptops/dell~brand/pr?sid=6bo,b5g">Dell
+                        Laptops</a>,&nbsp;<span><a href="/laptops/hp~brand/pr?sid=6bo,b5g">HP
+                            laptops</a></span>,&nbsp;<a href="/laptops/lenovo~brand/pr?sid=6bo,b5g"><span>Lenovo
+                            laptops</span></a>,&nbsp;<span><a href="/laptops/acer~brand/pr?sid=6bo,b5g">Acer
+                            laptops</a></span>,&nbsp;<span><a href="/laptops/apple~brand/pr?sid=6bo,b5g">Apple
+                            MacBooks</a></span>,<span><a href="/laptops/asus~brand/pr?sid=6bo,b5g"> Asus
+                            Laptops</a></span>&nbsp;and more, always assure you of quality service and can be
+                    blindly relied upon.</div>
+
+                <h2>Latest technology in laptops- Find the striking features &amp; specifications</h2>
+
+                <div>When you look to buy a laptop online, the first thing that you must consider is the kind of
+                    application you want to use it for. Is gaming your priority or you want the device for your
+                    business needs or travel or the like, or do you need one for usual everyday activities?
+                    After deciding on this, you must go to the next step of zeroing in on the specifications and
+                    features you want to in your laptop.</div>
+
+                <div></div>
+
+                <div>The operating system, processor type and RAM are the primary factors you must consider.
+                    Some of the popular operating systems used are Microsoft Windows 10, Windows 10 Pro and Mac
+                    OS while other open-source operating systems options are DOS, Linux and Ubuntu.</div>
+
+                <div></div>
+
+                <div>While selecting the right laptop processor for your application type, you can either choose
+                    from mainstream processors like AMD A8 and Intel Core i3 or, if you are looking for
+                    high-performance processors you can go for AMD A10, Intel Core i5 and Core i7.For everyday
+                    use laptops, AMD E1, E2, A4, A6, Intel Celeron Dual core and Pentium Quad Core should do the
+                    trick.</div>
+
+                <div></div>
+
+                <p><span><b>Multitasking and Processing requirement can be fulfilled by choosing RAM from
+                            various option ranging from 2GB to 16GB.</b></span></p>
+
+                <div></div>
+
+                <div>Other factors you should look for are the hard disk capacity (ranging from 32GB up to 2TB),
+                    screen size and the type of laptop. The type includes variants like notebooks, 2-in-1
+                    laptops, netbooks, ultrabooks and <a href="/q/chromebook">Chromebooks</a>. A notebook is
+                    smaller than a briefcase and can be easily carried around and used in aeroplanes, libraries,
+                    etc. Ultrabook, the name coined by Intel, are stylish and sleek looking laptops which also
+                    give an impressive performance. A netbook is a small form computer that is aimed at very low
+                    intense processing requirements like word processing, running a Web browser and connecting
+                    wirelessly to the Internet.</div>
+
+                <div></div>
+
+                <div>Cloud computing is all over the place and a Chromebook lets you utilize this awesome
+                    technology. Chromebooks run on Google's Chrome OS and these have most applications and
+                    documents living in the cloud.<span>Laptops with and without touchscreen can also be chosen
+                        from. Other options include a Backlit keyboard, HD Webcam, Optical DVD drive, Number of
+                        USB ports, HDMI port availability and WLAN port availability.</span></div>
+
+                <div></div>
+
+                <h2><span>The best laptops to invest in</span></h2>
+
+                <div>Unarguably, the top brands under laptops are always the go-to for finding the best laptop
+                    model you can invest in. Apart from the aforementioned brands, Dell, Asus, Microsoft,
+                    Micromax, i-ball are other laptops that are reliable and worthy of their price.</div>
+
+                <div></div>
+
+                <div>You can choose from a deluge of great models like the HP Core i3 6th Gen- this one is a
+                    good investment for those who are looking for budget laptops aimed at everyday normal use.
+                    It has a robust configuration, good battery back-up, ample storage at an affordable price.
+                </div>
+
+                <div></div>
+
+                <div>The Lenovo Ideapad 110 laptop (Core i3 6th Gen) is another good option. This is a decently
+                    priced laptop and is great for entertainment-related usage. It houses a powerful processor
+                    and can hence take on multitasking with ease. It also has excellent battery back up.</div>
+
+                <div></div>
+
+                <div>The Apple MacBook Air Core i5 5th Gen is one model which is always an entirely reliable
+                    option. From its slim and stylish look to its great performance, the MacBook is go-to for
+                    those who look for great quality.</div>
+
+                <div>The Acer ES 15 Core i3 6th Gen is another budget-friendly laptop which is worthy of its
+                    price. It boasts of outstanding battery backup, superior RAM, fast processor and much more.
+                </div>
+
+                <div></div>
+
+                <div>The aforementioned models are only some of the top trending models of the day. Apart from
+                    them, many other latest models like HP APU Quad Core E2 6th Gen, Dell Inspiron Core i3 6th
+                    Gen, Micromax Canvas Laptop II (WIFI) Atom 4th Gen and many more are also available at the
+                    best laptop prices online.</div>
+
+                <div></div>
+
+                <p><span><b>Types of laptops based on application</b></span></p>
+
+                <div></div>
+
+                <div>These days, with the gaming mania spreading really fast, gaming freaks are bent upon
+                    getting the best gaming laptop online from the plethora of choices.</div>
+
+                <h2><span>How to buy a gaming laptop?</span></h2>
+
+                <div></div>
+
+                <div><b>Answer: Look for the following specifications:</b></div>
+
+                <div></div>
+
+                <div>1. GPU( Graphics Card): This is the most important aspect you must check on a gaming
+                    laptop. Choose from AMD Radeon and NVIDIA GeForce graphics to get high-quality experience.
+                </div>
+
+                <div>2. Processor(CPU): You can choose between Intel and AMD. A quad-core i5 processor would be
+                    enough for most gamers. An octa-core i7 will give the best power output.</div>
+
+                <div>3.RAM: 8GB RAM is the basic and better choice for gaming. But if you aim to stream your
+                    games, or do a lot of video editing, you can go for 12GB or 16GB RAM.</div>
+
+                <div>4. Drive: You must always go for SSD over HDD owing to the speed boost it can give for
+                    booting up and loading games.</div>
+
+                <div>Some of the best gaming laptop brands that you can purchase are&nbsp;<span><a
+                            href="/laptops/alienware~brand/pr?sid=6bo,b5g">Alienware</a></span>,&nbsp;<span><a
+                            href="/laptops/msi~brand/pr?sid=6bo,b5g">MSI</a></span>, Predator, ROG – Republic of
+                    gamers, Omen and Legion.</div>
+
+                <div></div>
+
+                <div>Other types are laptops used primarily for business or travel, everyday use, for better
+                    performance and multitasking and more.</div>
+
+                <h3></h3>
+
+                <p>Laptops - Frequently Asked Questions</p>
+
+                <p><b>&nbsp;1. Which is the best laptop to buy under Rs 50,000?</b></p>
+
+                <p>Answer: While buying a laptop online, you must consider what application you want to use it
+                    for. Do you want to buy a laptop for your business needs, everyday activities or gaming?
+                    Once you decide this, you can zero in on the specifications and features. Under Rs 50,000
+                    there is a wide range of laptop from top brands that you can choose from. Some of the good
+                    models are HP Imprint Core i3 6th Gen laptop, Acer Aspire 3 Celeron Dual Core laptop, Dell
+                    Inspiron Core i3 6th Gen and many more options can be found under 50,000.</p>
+
+                <p><b>2. Which laptop is best for gaming?</b></p>
+
+                <p>Answer: These are some of the factors you should look into while buying a gaming laptop:</p>
+
+                <p>GPU (Graphics Processing Unit)- choose from AMD Radeon and NVIDIA GeForce and the like, the
+                    CPU for assuring smooth performance- choose from Intel, AMD and the like, RAM – the amount
+                    of RAM is important for smooth gaming. Go for laptops like Acer Predator Helios 300 Core i7
+                    7th Gen, MSI CX Core i7 7th Gen, Lenovo Legion Core i7 7th Gen among others.</p>
+
+                <p><b>3. How can I increase my laptop's speed? It is a Windows-based device.</b></p>
+
+                <p>Answer: To increase the speed of a laptop you can do the following activities:</p>
+
+                <p>i) Clean your laptop- remove all software that you are not using on a regular basis. Use a PC
+                    cleaner and optimization tool like CC Cleaner to clean up your PC.</p>
+
+                <p><span>ii) Keep your Windows OS updated.</span></p>
+
+                <p>iii) Increase your RAM if possible.</p>
+
+                <p><span>iv) Check with a malware scanner if your PC is affected by some malware infection or
+                        rogue programs.</span></p>
+
+                <p>Follow the above steps in order to ensure better performance of your laptop.</p>
+
+                <p><b>4. What is the difference between an engineering laptop and one for art students?</b></p>
+
+                <p>Answer: Engineering students need to install and use a number of technical software like CAD,
+                    AutoCAD, ANSYS, Solidworks, MATLAB and the like for various designing and project related
+                    work. Hence, a lot of disk space and smooth and fast operation are necessary. Hence,
+                    choosing a laptop with high-speed CPU, large RAM, large hard-disk drive memory are
+                    essential. Good options are HP 15 Core i5 6th Gen Notebook, Lenovo core i5 7th Gen Notebook,
+                    Dell Inspiron 7000 core Notebook, Apple MacBook Air Core i5 5th Gen laptop and more.</p>
+
+                <p>Arts students install and use a lot of designing software like Photoshop, Indesign, Lightroom
+                    and the like for their design and editing work. You can opt for an i3 core processor laptop
+                    like HP Pentium quad-core notebook, Dell Inspiron Core i3 6th Gen Notebook, Lenovo Core i3
+                    6th Gen Ideapad Notebook among others.</p>
+
+                <p><b>5. What are the factors to be considered before buying a laptop?</b></p>
+
+                <p>Answer: Based on what application your laptop is to be used for, you can buy one with an
+                    appropriate RAM, processor, storage type and so on:</p>
+
+                <p>i) <b>Processor:</b> If you are buying a laptop only for your everyday activities and do not
+                    plan to install a lot of software that might take up a huge space inside, then you can go
+                    for 13 or 15 processors from Intel. On the other hand, if you are into gaming and also want
+                    to install many spaces consuming software, then go to i7. AMD and ARM are also other good
+                    processor brands.</p>
+
+                <p>ii) <b>RAM:</b> If you are buying a <a href="/q/macbook">MacBook </a>where it is not possible
+                    to expand the RAM post buying, then buy one with maximum RAM. Otherwise, a laptop from
+                    Lenovo, HP, Dell, Asus etc., with 16GB RAM should serve the purpose. The RAM can always be
+                    expanded in future.</p>
+
+                <p>iii) Storage type: If your applications are not very heavy on the software side, you can go
+                    for an HDD type storage. Otherwise, it is best to go for SSD type storage. SSDs make
+                    everything significantly faster. It speeds up the computer a lot.&nbsp;</p>
+
+                
+
+
+            </div>
+        </div>
+
+
+        <!-- footer -->
+        <div class="mainfooter">
+            <div class="subfooter row">
+                <div class="d-flex">
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;">ABOUT</div>
+                        <a class="link-light" href="contactus">Contact Us</a>
+                        <a class="link-light" href="aboutus">About Us</a>
+                        <a class="link-light" href="careers">Careers</a>
+                        <a class="link-light" href="stories">PleasurePlaza Stories</a>
+                        <a class="link-light" href="press">Press</a>
+                        <a class="link-light" href="wholesales">PleasurePlaza Wholesales</a>
+                        <a class="link-light" href="info">Corporate Information</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> HELP</div>
+                        <a class="link-light" href="payments">Payments</a>
+                        <a class="link-light" href="shipping">Shipping</a>
+                        <a class="link-light" href="c&r">Cancellation & Returns</a>
+                        <a class="link-light" href="faq">FAQ</a>
+                        <a class="link-light" href="report">Report Infringement</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> POLICY</div>
+                        <a class="link-light" href="policy">Return Policy</a>
+                        <a class="link-light" href="toc">Terms Of Use</a>
+                        <a class="link-light" href="security">Security</a>
+                        <a class="link-light" href="privacy">Privacy</a>
+                        <a class="link-light" href="sitemap">Sitemap</a>
+                        <a class="link-light" href="epr">EPR Compliance</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> SOCIAL</div>
+                        <a class="link-light" href="fb">Facebook</a>
+                        <a class="link-light" href="twitter">Twitter</a>
+                        <a class="link-light" href="yt">YouTube</a>
+                        <a class="link-light" href="ig">Instagram</a>
+
+                    </div>
+                    <div>
+                        <div class="d-flex flex-column">
+                            <div class="para2-footer">
+                                <div class="head " style="height:16.8px;">
+                                    <span>Mail Us:</span>
+                                </div>
+
+                                <div class="para-footer">
+                                    <p>PleasurePlaza Internet Private Limited,</p>
+                                    <p>Buildings Alyssa, Begonia &</p>
+                                    <p>Clove Embassy Tech Village,</p>
+                                    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                    <p>Bengaluru, 560103,</p>
+                                    <p>Karnataka, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 198.8px;
+                    width: 246.04px;">
+
+                        <div class="para3-footer d-flex flex-column">
+                            <div class="head" style="height:16.8px;">
+                                <span>Registered Office Address:</span>
+                            </div>
+
+                            <div class="para-footer">
+                                <p>PleasurePlaza Internet Private Limited,</p>
+                                <p>Buildings Alyssa, Begonia &</p>
+                                <p>Clove Embassy Tech Village,</p>
+                                <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                <p>Bengaluru, 560103,</p>
+                                <p>Karnataka, India</p>
+                                <p>CIN : U51109KA2012PTC066107</p>
+                                <p>Telephone: 1800 202 9898</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="lower-footer">
+                <div>
+                    <img src="{%static 'images/t1.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="sell">&nbsp Sell On PleasurePlaza</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t2.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="ad">&nbsp Advertise</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t3.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="gift">&nbsp Gift Card</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t4.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="help-center">&nbsp Help Center</a>
+                </div>
+                <span class="copyright">
+                    ©
+                    <!--  -->
+                    2007-2021
+                    <!--  -->
+                    <span>PleasurePlaza.com</span>
+                </span>
+                <img src="{%static 'images/t6.svg'%}">
+            </div>
+        </div>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    </body>
+
+</html>

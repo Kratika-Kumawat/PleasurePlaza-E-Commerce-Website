@@ -1,0 +1,949 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="icon" href="{%static 'images/fav.png'%}" type="image/gif">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
+
+        <title>PleasurePlaza! Here to make your life easier.</title>
+
+        <style>
+            /** @format */
+
+            .search-bar {
+                width: 550px;
+            }
+
+            .navbar-dark .navbar-nav .nav-link {
+                color: white;
+                font-size: 1.18rem;
+                font-weight: 500;
+            }
+
+            .navbar-brand {
+                font-size: 25px;
+                font-weight: 750;
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .sub-navbar {
+                position: relative;
+                min-height: 40px;
+                color: #000;
+                width: 100%;
+                z-index: 6;
+                background-color: #fff;
+                box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
+            }
+
+            .sub-navbar2 {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 40px;
+                margin: auto;
+                position: relative;
+                max-width: 1248px;
+                font-family: "Roboto", sans-serif;
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .cat {
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+            .cat:hover {
+                color: #2874f0;
+            }
+
+            .product {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                min-width: 978px;
+                max-width: 1680px;
+                padding: 8px;
+                background-color: rgb(238, 238, 238);
+            }
+
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .pro-img {
+                max-width: 280px;
+            }
+
+            .pro-info {
+                background-color: white;
+                margin-left: 8px;
+                width: 100%;
+            }
+
+            .para {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .para2 {
+                padding: 0px 0 4px;
+                margin: 0 10px;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+            }
+
+            .head-mob {
+                background: #fff;
+                padding: 12px 16px 0;
+                border-bottom: 1px solid #f0f0f0;
+                min-height: 72px;
+            }
+
+            .cardd {
+                line-height: 1;
+                padding: 24px 0 30px 24px;
+                display: block;
+                position: relative;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .pro-name {
+                font-size: 18px;
+                display: block;
+                cursor: pointer;
+            }
+
+            .pro-high {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .pro-high li {
+                /* Default bullets style erased */
+                list-style: none;
+            }
+
+            .pro-high li::before {
+                color: #878787;
+                content: "\2022";
+                display: inline-block;
+                width: 1em;
+
+                font-weight: bold;
+            }
+
+            .reviews {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 14px;
+                word-spacing: 0px;
+                color: #878787;
+                margin-left: 8px;
+                margin-top: 5px;
+            }
+
+            .price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 25px;
+                font-weight: 700;
+            }
+
+            .offer {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: -0.2px;
+                line-height: 13px;
+                text-decoration: none solid rgb(56, 142, 60);
+                word-spacing: 0px;
+                color: #388e3c;
+                margin-top: 12px;
+            }
+
+            .total-price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 14px;
+                text-decoration: line-through solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                padding: 10px 0 0 0;
+            }
+
+            .assure {
+                display: inline-block;
+                vertical-align: top;
+                font-size: 0;
+                padding-bottom: 4px;
+                margin-left: 20px;
+                margin-top: 3px;
+            }
+
+            .mainfooter {
+                background-color: #172337;
+                height: 352.6px;
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+            }
+
+            .cols {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 400;
+                display: block;
+                line-height: 24px;
+            }
+
+            .link-light {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: "Roboto", sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light:hover {
+                color: #f8f9fa;
+                text-decoration: underline;
+            }
+
+            .subfooter {
+                height: 237.8px;
+                width: 1367.28px;
+                margin: 0 0 0 65px;
+                padding: 40px 0 0 0;
+            }
+
+            .row {
+                --bs-gutter-x: 0;
+            }
+
+            .head {
+                color: #878787;
+                font-size: 12px;
+                font-weight: 400;
+                margin-bottom: 13px;
+                font-family: "Roboto", sans-serif;
+            }
+
+            .lower-footer {
+                border-top: 1px solid #454d5e;
+                padding: 25px 0;
+                margin-top: 40px;
+                width: 100%;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-justify-content: space-evenly;
+                -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+            .para-footer {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: "Roboto", sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+                line-height: 17px;
+            }
+
+            .para2-footer {
+                border-left: 1px solid #454d5e;
+                padding: 0 25px 0 25px;
+                height: 131.4px;
+                width: 283.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .para-footer p {
+                margin: 0;
+                padding: 0;
+            }
+
+            .para3-footer {
+                margin: 0 0 10px 0;
+                padding: 0 0 0 14px;
+                height: 166.6px;
+                width: 246.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .link2 {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .copyright {
+                color: #f8f9fa;
+                font-family: "Roboto", sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 14px;
+            }
+
+            .link-light2 {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: "Roboto", sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light2:hover {
+                color: #f8f9fa;
+            }
+            .sort {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 16px;
+                font-weight: 550;
+                line-height: 19.6px;
+                text-decoration: none;
+                word-spacing: 0px;
+                padding-top: 2px;
+            }
+            .footer-detail div {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+
+            .footer-detail h2 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail h3 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail p {
+                color: #878787;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                margin: 0px;
+                padding: 0px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid ps-5 ms-5">
+                <a class="navbar-brand ps-5 ms-5" href="#">PleasurePlaza</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <form class="d-flex search-bar">
+                    <input class="form-control me-2" type="search" placeholder="Search for products,brands and more"
+                        aria-label="Search">
+                    <button class="btn btn-success bi bi-search" type="submit"></button>
+                </form>
+
+                <div class="collapse navbar-collapse ms-5 ps-5" id="navbarSupportedContent">
+                    <div class="d-flex me-4 ms-5 ps-5" style="margin-left: 15px;">
+                        <a href="login.html" class="btn btn-outline-light">Login</a>
+                    </div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown me-4">
+                            <a class="nav-link dropdown-toggle card-btn" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">SignUp</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="d-flex me-4">
+                                <a href="" class="btn bi bi-cart3 cart-btn btn-dark"> Cart <span
+                                        class="badge rounded-pill bg-danger">0</span></a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </nav>
+
+        <!-- SUB NAVBAR -->
+        <nav>
+            <div class="sub-navbar">
+                <div class="sub-navbar2">
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Mobiles</a>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Fashion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/fashion/Men">Men</a></li>
+                            <li><a class="dropdown-item" href="/fashion/Women">Women</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/fashion/Kids">Kids</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronics
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="laptop">Laptops</a></li>
+                            <li><a class="dropdown-item" href="tablets">Tablets</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="headphones">Headphones</a></li>
+                            <li><a class="dropdown-item" href="camera">Cameras</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Appliances
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="television">Televisions</a></li>
+                            <li><a class="dropdown-item" href="washing_machine">Washing Machines</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="refrigerator">Refrigerators</a></li>
+                            <li><a class="dropdown-item" href="air_conditioners">Air Conditioners</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Books</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- showing products -->
+        <!--  -->
+        <div class="product">
+            <div class="d-flex flex-row">
+                <div class="pro-img">
+                    <img src="{%static 'images/mob.jpg' %}" alt="" width="230px" height="750px">
+                </div>
+                <div class="d-flex flex-col pro-info">
+                    <div>
+                        <div class="head-mob">
+                            <p class="para">
+                                Mobile phones are no more merely a part of our lives. Whether it's to stay connected
+                                with friends and family or to keep abreast of important developments around the world,
+                                mobiles are no longer for sending a text or making a call. From budget to
+                                state-of-the-art smartphones; indigenous names to global big-wigs - a whole universe of
+                                mobiles await you on PleasurePlaza. Whether you’re looking for waterdrop notch screens, a
+                                high screen to body ratio, AI-powered sensational cameras, high storage capacity,
+                                blazing quick processing engines or reflective glass designs, rest assured you won’t
+                                have to venture anywhere else for your smartphone needs. The information you are reading
+                                has been last updated on 16-Oct-21.
+
+                                iPhone 13 | iPhone 13 Pro | iPhone 13 Pro Max | iPhone 13 Mini | iPhone 12 | iPhone 12
+                                Pro | iPhone 12 Pro Max | iPhone 12 mini | iPhone 11 | iPhone 11 Pro
+
+
+                            </p>
+
+                            <div class="d-flex justify-content-start" style="padding-top:5px;">
+                                <h5>Mobiles</h5>
+                                <h6 style="padding-top: 3px;
+                                margin-left: 12px;">(Showing 1-6 products of 6 Products)</h6>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <span class="sort">
+                                    Sort By
+                                </span>
+                                <p class="para2">Popularity</p>
+                                <p class="para2">Price--Low To High</p>
+                                <p class="para2">Price--High To Low</p>
+                            </div>
+                        </div>
+                        {% for i in mobile %}
+                        <div>
+                            <div class="cardd">
+                                <a href="" style="text-decoration:none">
+                                    <div class="row">
+                                        <div class="col-md-2 d-flex justify-content-center">
+                                            <img class="img-fluid rounded-start" src="{{i.img1.url}}" alt="..." style="height:200px;
+                                            width: 100px">
+                                            <!-- <span class="heart">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-suit-heart-fill"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" />
+                                                </svg>
+                                            </span> -->
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div style="margin-left: 25px">
+                                                <div class="pro-name cat link-dark">
+                                                    {{i.product_name}}
+                                                </div>
+                                                <div style="margin-top: 10px;"
+                                                    class="link-dark d-flex justify-content-start">
+                                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="10"
+                                                                height="10" style="vertical-align: baseline;"
+                                                                fill="currentColor" class="bi bi-star-fill"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                            </svg></span>
+                                                        <div class="reviews">
+                                                            {% for j in r1 %}
+                                                            {% if forloop.counter == forloop.parentloop.counter %}
+                                                            {{j}}&nbspRatings &
+                                                            {% endif %}
+                                                            {% endfor %}
+                                                            {% for j in r2 %}
+                                                            {% if forloop.counter == forloop.parentloop.counter %}
+                                                            {{j}}&nbspReviews
+                                                            {% endif %}
+                                                            {% endfor %}
+
+
+                                                        </div>
+                                                    </p>
+
+                                                </div>
+                                                <div style="margin-top:13px;line-height: 20px;"
+                                                    class="link-dark pro-high">
+                                                    {% for j in h %}
+                                                    {% if forloop.counter == forloop.parentloop.counter %}
+                                                    {% for k in j %}
+                                                    <li>{{k}}</li>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                    <li>{{i.warranty}}</li>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="d-flex flex-row">
+                                                <div class="price link-dark">
+                                                    ₹{{i.price}}
+                                                </div>
+                                                <div class="assure">
+                                                    <img src="{%static 'images/logo.png '%}" alt="" height=20px;
+                                                        width=77px;>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row link-dark">
+                                                {% for j in t %}
+                                                {% if forloop.counter == forloop.parentloop.counter %}
+                                                <p class="total-price">₹{{j}}</p>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% for j in o %}
+                                                {% if forloop.counter == forloop.parentloop.counter %}
+                                                <p class="offer">&nbsp&nbsp&nbsp{{j}}% off</p>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 25px;">
+        <div class="footer-detail">
+            <p></p>
+            <h2>Mobile Phones- Buy mobile phones online at best prices in India</h2>
+            <div></div>
+            <div>Mobile phone, also called a cell phone owing to it using a cellular network architecture, have seen a
+                tremendous growth in terms of technology and size over the years. On PleasurePlaza, we have a diverse
+                collection of iOS and Android mobiles ranging from basic mobiles, low-range and mid-range phones to very
+                high-end smartphones that employ state-of-the art technology. These mobiles are priced anywhere between
+                Rs 500 to Rs 100,000. Top mobile brands like Samsung, Oppo, Vivo, Apple and many more are available here
+                under discounts. Apart with these, the latest trend in network connectivity, the 4G network is also made
+                accessible in 4G mobiles from top brands.<br><br><a
+                    href="/realme-8-pro-infinite-black-128-gb/p/itmaa9c73f5a987c">Realme 8 Pro</a>&nbsp;|&nbsp;<a
+                    href="/realme-8-cyber-black-128-gb/p/itm63bda3bf5b1db">Realme 8</a>&nbsp;|&nbsp;<a
+                    href="/realme-8-5g-supersonic-black-64-gb/p/itm8a548578d136e">Realme 8 5G</a>&nbsp;|&nbsp;<a
+                    href="/poco-x3-cobalt-blue-64-gb/p/itme71cba415d626">POCO X3</a>&nbsp;|&nbsp;<a
+                    href="/poco-x3-pro-steel-blue-128-gb/p/itm92bc566db15d8">POCO X3 Pro</a>&nbsp;|&nbsp;<a
+                    href="/apple-iphone-11-white-64-gb/p/itm2644c3764fc54">iPhone 11</a>&nbsp;|&nbsp;<a
+                    href="/realme-7-mist-white-128-gb/p/itme55d08631f19b">Realme 7</a>&nbsp;|&nbsp;<a
+                    href="/infinix-hot-10-play-7-purple-32-gb/p/itm1f660c8716944">Infinix Hot 10</a>&nbsp;|&nbsp;<a
+                    href="/poco-m3-cool-blue-64-gb/p/itmc8ec867cb0472">POCO M3</a>&nbsp;|&nbsp;<a
+                    href="/poco-x3-pro-steel-blue-128-gb/p/itm92bc566db15d8">POCO X3 Pro</a>&nbsp;|<a
+                    href="/redmi-note-10-aqua-green-128-gb/p/itm23973bd36fd21">&nbsp;Redmi Note 10</a>&nbsp;|&nbsp;<a
+                    href="/vivo-v20-sunset-melody-128-gb/p/itm3c6e689e97959">Vivo V20</a>&nbsp;|&nbsp;<a
+                    href="/redmi-9-power-mighty-black-64-gb/p/itm481ab234a6553">Redmi 9 Power</a><br><br>&nbsp;</div>
+            <h2>iPhone 11</h2>
+            <div><br>The <a href="/apple-iphone-11-black-64-gb/p/itm0f37c2240b217">iPhone 11</a> by Apple has an array
+                of impressive features to make your tasks easier. See your passion for photography come to life with the
+                dual-camera system that provides a pair of 12 MP cameras to help you capture stunning images. This
+                smartphone is equipped with a powerful A13 Bionic chip that processes your tasks swiftly and smoothly.
+                The Liquid Retina HD display enables you to view pictures and videos with enhanced image quality.&nbsp;
+            </div>
+            <h2><br>iPhone SE</h2>
+            <div><br>The <a href="/apple-iphone-se-black-64-gb/p/itm832dd5963a08d">iPhone SE</a> can be the ideal
+                companion for someone who is always looking out for adventure in the great outdoors. The phone is built
+                to survive water splashes, accidental spills and is also dust-resistant so that you can stay worry-free
+                during your ventures. It gives you an 11.94 cm (4.7) screen with a Retina HD display. The powerful
+                battery is fast-charge capable, enabling you to continue your important tasks without a snag.&nbsp;
+            </div>
+            <h2><br>iPhone XR</h2>
+            <div><br>Enjoy a power-packed performance with the <a
+                    href="/apple-iphone-xr-black-128-gb/p/itmf9z7zhdgzwmzm">iPhone XR</a>. The smartphone features an
+                efficient A12 Bionic Chip processor that offers a smooth operation. To let you capture impressive shots,
+                the device features a 12 MP wide camera. &nbsp;The phone comes with a 15.49 cm (6.1) screen that
+                displays your videos, images, and applications with excellent quality.&nbsp;</div>
+            <h2><br>iPhone 12</h2>
+            <div><br>The <a href="/apple-iphone-12-white-64-gb/p/itm8b88bdc03cd79">iPhone 12</a> features a lightweight
+                and thin design with a tough ceramic shield that keeps the phone protected against accidental drops. The
+                OLED display provided on the phone delivers excellent colour accuracy, which offers darker blacks and
+                images with enhanced brightness and contrast. You can click amazing night-time selfies, as the phone
+                features a 12 MP TrueDepth front-facing camera with Night Mode.&nbsp;</div>
+            <h2><br>iPhone 11 Pro</h2>
+            <div><br>With a Super Retina XDR display provided on a screen size of 14.73 cm (5.8), the <a
+                    href="/apple-iphone-11-pro-space-grey-64-gb/p/itm7e24c1c560208">iPhone 11 Pro</a> offers you
+                exceptional image quality. It is equipped with an A13 Bionic Chip that offers fast processing speed. The
+                triple camera setup featuring a 12 MP ultra-wide lens, a 12 MP wide lens, along with a 12 MP telephoto
+                camera enables you to capture your special moments with clarity.&nbsp;</div>
+            <h2><br>iPhone 12 Mini</h2>
+            <div><br>Ace your photography skills with the <a
+                    href="/apple-iphone-12-mini-red-128-gb/p/itm205ea3c0649df">iPhone 12 Mini </a>that features a
+                dual-camera system. It offers a beneficial Night Mode feature that allows you to click stunning
+                low-light shots. The phone boasts a ceramic shield and water-resistance feature, making it an ideal
+                device to suit your adventurous side. With the 4K HDR video and Dolby Vision, you can record videos that
+                are excellent in colour and detail.&nbsp;</div>
+            <h2><br>iPhone 12 Pro</h2>
+            <div><br>Experience innovative features such as a LiDAR scanner that can give you enhanced augmented
+                reality, with the <a href="/apple-iphone-12-pro-graphite-128-gb/p/itm03e5f2595d843">iPhone 12 Pro</a>.
+                &nbsp;The phone is powered with the fast and efficient A14 Bionic chip, which features an advanced
+                speedy neural engine processor. Take your photography skills to another level using the Pro camera
+                system provided on the smartphone.</div>
+            <h2><br>iPhone 12 Pro Max</h2>
+            <div><br>With the <a href="/apple-iphone-12-pro-max-silver-128-gb/p/itm5a51ba742a17e">iPhone 12 Pro Max</a>,
+                you can enjoy enlarged viewing with a lesser bezel and more screen space. The large screen size of 17.02
+                cm (6.7) offers you a Super Retina XDR display. Make your night-time photographs come to life with the
+                Night Mode feature on the phone’s camera that makes your low-light portraits more vivid. The bokeh
+                effect accentuates background lights to give you phenomenal photographs.&nbsp;</div>
+            <h2><br>iPhone 11 Pro Max</h2>
+            <div><br>Be it photography, gaming, streaming the web, or carrying out your important work, the <a
+                    href="/apple-iphone-11-pro-max-gold-64-gb/p/itm6ef18218efdf6">iPhone 11 Pro Max</a> can be your tech
+                partner. With the A13 Bionic Chip processor equipped with the device, you can get your tasks done
+                smoothly and with fast speeds. The smartphone gives you a 16.51 cm (6.5) display that provides you with
+                a clear view of the pictures, videos, and graphics that you watch and experience on your phone.&nbsp;
+            </div>
+            <h2><br>POCO M3</h2>
+            <div><br>The <a href="/poco-m3-cool-blue-64-gb/p/itmc8ec867cb0472">POCO M3</a> can be a suitable device for
+                someone who is in need of a smartphone that serves looks and is also packed with innovative features.
+                The stylish phone features a 16.59 cm (6.53) Full HD+ screen mounted over a textured back panel. With
+                the 48 MP primary camera and the 8 MP selfie camera, you can capture your moments with great detail and
+                precision. The phone offers a smooth and swift performance with its Qualcomm Snapdragon 662
+                processor.&nbsp;</div>
+            <h2><br>POCO M3 Pro 5G</h2>
+            <div><br>Enjoy extended hours of media with the <a
+                    href="/poco-m3-pro-5g-power-black-64-gb/p/itmabfea23908d0d">POCO M3 Pro 5G</a> mobile phone that
+                features an efficient 5000 mAH Lithium-ion polymer battery and a 16.51 cm (6.5) Full HD+ screen. The
+                device features a MediaTek Dimensity 700 processor that offers speedy operation. Shop for this
+                5G-enabled smartphone easily online to experience faster speeds and enhanced connectivity. &nbsp;</div>
+            <h2><br>POCO X3 Pro</h2>
+            <div><br>With the <a href="/poco-x3-pro-steel-blue-128-gb/p/itm92bc566db15d8">POCO X3 Pro</a> smartphone,
+                you can experience a fast, swift, and sustained phone performance. The smartphone has a powerful
+                quad-camera setup, using which you can click memorable photographs, capturing the gist of your special
+                occasions. The phone offers an efficient 48 MP primary camera, combined with a depth sensor, macro lens,
+                and an ultra wide-angle lens to deliver stunning pictures and cinematic videos.</div>
+            <h2><br>Realme X7 Max</h2>
+            <div><br>Enjoy an enhanced viewing experience with the <a
+                    href="/realme-x7-max-mercury-silver-128-gb/p/itm9321fdf5ebc65">realme X7 Max</a> that features a 120
+                Hz Super AMOLED screen on a lightweight and slim body. This feature-rich smartphone packs in a powerful
+                MediaTek Dimensity 1200 processor that boosts performance and speed. With the 16 MP front-facing camera,
+                you can click wide-angle selfies, low light selfies, and portrait selfies. The bokeh effect provided on
+                this smartphone camera can help make your pictures appear more aesthetically pleasing.&nbsp;</div>
+            <h2><br>Realme 8 5G</h2>
+            <div><br>Embrace the future with the <a href="/realme-8-5g-supersonic-black-64-gb/p/itm8a548578d136e">realme
+                    8 5G</a> phone that is built to support 5G technology. Enjoy video streaming, gaming, and other
+                activities with an immersive 16.51 cm (6.5) display with a Full HD+ resolution. The robust 5000 mAH
+                battery keeps your phone powered all day long so that you do not have to worry about your essential
+                tasks getting interrupted. Click stunning photos with the 48 MP + 2 MP + 2 MP triple-camera setup
+                provided on this smartphone.&nbsp;<br><br>&nbsp;</div>
+            <h2>Samsung A32: Amalgamation of Performance and Style&nbsp;</h2>
+            <p><br>In the world of Android smartphones, South Korean tech giant, Samsung, is known for offering devices
+                that look great, deliver reliable performance, and come with user-friendly features. The <a
+                    href="/samsung-galaxy-a32-awesome-black-128-gb/p/itm3629d34759a4d">Samsung A32</a> is no different,
+                and it has already gained popularity among many users. This Samsung mobile comes with an impressive
+                camera system to let you click lovely photos with stunning details, a wide display for an immersive
+                viewing experience, and a high capacity battery that ensures that you do not have to carry your phone
+                charger everywhere you go. You can buy the Samsung A32 from online shopping websites where you can also
+                check its features, user reviews, and ratings. Here are a few key features of this Samsung Galaxy
+                A32:&nbsp;<br>&nbsp;</p>
+            <h2>Samsung A52: Premium Design Loaded with Features</h2>&nbsp;<p>With a product line covering almost the
+                entire price spectrum, Samsung has now launched mid-range mobile phones with competitive offerings like
+                the premium ones. The recently launched Samsung A52 mid-range segment smartphone is loaded with a
+                premium design and advanced features. With sleek curves and a stylish design, this smartphone blends
+                well with its matte finish that looks beautiful in your hand. It is a compact and lightweight phone
+                built to attract the attention of onlookers. This Samsung mobile has a textured finish that aids when it
+                is being hand-held and reduces any accidental drops. &nbsp;<br><br>&nbsp;</p>
+            <h2>Samsung A72: A Stylish Powerhouse of Performance</h2>
+            <p><br>The <a href="/samsung-galaxy-a72-awesome-black-128-gb/p/itme6d14bf36c7af">Samsung A72</a> smartphone
+                sets a new standard to stylish design combined with fantastic performance. It comes with powerful RAM,
+                which ensures smooth usage of this device. Having a rear camera makes it easier for you to take your
+                desired photos through its multi-lens with varied background settings. It is also rated IP67, making it
+                water-resistant. This feature lets you use this Samsung mobile even if it is accidentally subjected to
+                water splashes or spills. The IP67 rating makes the device resistant to water up to 1 meter for approx
+                30 minutes. You can shop this smartphone online across e-stores.<br>&nbsp;</p>
+            <h2>iPhone SE -2020 - Experience Power and Performance</h2>
+            <p><br>When it comes to smartphones, Apple stands among the elite and produces high-end smartphones which
+                not only look good but also perform great. Meet the <a
+                    href="/apple-iphone-se-black-64-gb/p/itm832dd5963a08d">iPhone SE 2020</a> which boasts of the
+                powerful A13 Bionic chip, an amazing camera system, long-lasting battery, and a ton of innovative
+                features.</p>
+            <h2><br>Samsung A21s</h2>
+            <p><br>Sometimes, budget phones amaze us with the performance they pack. And, the A21s from Samsung is no
+                exception. Can you think of another smartphone that costs between Rs 10,000 - 15,000 and rocks an
+                octa-core processor, along with 4 GB of RAM? Take your time. We’ll wait. If you can’t think of another
+                phone, then you should really consider buying this bad boy. And, if you are a student, or someone with a
+                modest income, then you might want to give the <a
+                    href="/samsung-galaxy-a21s-black-64-gb/p/itm3f1fa3caa5ac6">Samsung A21s</a> a shot.</p>
+            <h2><br>Samsung A31</h2>
+            <p><br>Alright, you got the raise that you were looking for and now it’s time to splurge. It’s time to
+                retire the old guard and get something new. But, if you aren’t ready to spend on high-end phones, try
+                the <a href="/samsung-galaxy-a31-prism-crush-white-128-gb/p/itma110137399bdc">Samsung A31</a>. Yes, it
+                has a great octa-core processor and tons of RAM, but what separates it from other phones in its class
+                are the cool features, such as its 5000-mAh battery, FHD+ Super AMOLED display, and it’s 128 GB storage
+                capacity, among other things.&nbsp;</p>
+            <h2><br>Oppo A31</h2>
+            <p><br><span>Apart from featuring a high-quality 8 MP front camera and a 12 MP + 2 MP + 2 MP rear camera
+                    setup, the <a href="/oppo-a31-fantasy-white-64-gb/p/itm82e19f459118a">Oppo A31</a>’s affordable cost
+                    is also an added benefit since you don’t have to shell out a huge sum of money to get the ideal
+                    smartphone. The MediaTek Helio P35 processor ensures that all your apps function seamlessly without
+                    any glitch. It also comes with a 4230 mAh battery which lasts for a long time, so you can stream
+                    movies, listen to music, play games, and more without worrying about running out of charge. What’s
+                    more, it comes with numerous features such as Portrait Bokeh, Dazzle Colour Mode, Secure Fingerprint
+                    Unlock to make your smartphone experience as engaging and innovative as possible.</span></p>
+            <h2><br>Oppo F15</h2>
+            <p><br>If you’re looking for a stylish, budget smartphone with great performance, then the <a
+                    href="/oppo-f15-blazing-blue-128-gb/p/itm56d35565691ea">Oppo F15</a> is an ideal choice. Watch
+                videos, play games, and use all your favourite apps with ease, thanks to its MediaTek Helio P70
+                processor. Its sleek design, its FHD+ AMOLED screen, Ultra Night Mode 2.0 In Display Fingerprint sensor
+                are some of the few features that make the Oppo F15 a hit among everyone.</p>
+            <h2><br>Say Hello to the Vivo Y12</h2>
+            <p><br>More often than not we spend a lot of time on our smartphones. And this would obviously drain its
+                battery out, wouldn’t it? But when you have the <a
+                    href="/vivo-y12-burgundy-red-64-gb/p/itmfhyjvucp5mueg">Vivo Y12</a> phone with you, this wouldn’t be
+                a problem. It is designed with a powerful 5000 mAh battery and it comes equipped with different
+                technologies that help save power. Some of the other enticing features that you can expect on this phone
+                include its AI triple rear camera, Halo Full-view display, and the octa-core processor. This phone also
+                comes with the Ultra Game mode that will help you have an immersive gaming experience.&nbsp;</p>
+            <h2><br>Let’s Get to Know the Vivo Y50</h2>
+            <div>
+                <p><br>From delightful visuals to gorgeous photos, everything will seem like a possibility when you have
+                    the <a href="/vivo-mobile-phones-store">Vivo Y50</a> smartphone. Featuring the FHD+ iView Display,
+                    you can be assured to be in for a wonderful visual treat. Oh, and what’s more, this phone comes with
+                    a 13 MP AI quad rear camera! Get set to capture stunning visuals the next time you go on a holiday.
+                    Not to forget, its elegant design with a layered texture is going to be attention-grabbing.&nbsp;
+                </p>
+            </div>
+            
+        </div>
+    </div>
+        <!-- footer -->
+        <div class="mainfooter">
+            <div class="subfooter row">
+                <div class="d-flex">
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;">ABOUT</div>
+                        <a class="link-light" href="contactus">Contact Us</a>
+                        <a class="link-light" href="aboutus">About Us</a>
+                        <a class="link-light" href="careers">Careers</a>
+                        <a class="link-light" href="stories">PleasurePlaza Stories</a>
+                        <a class="link-light" href="press">Press</a>
+                        <a class="link-light" href="wholesales">PleasurePlaza Wholesales</a>
+                        <a class="link-light" href="info">Corporate Information</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> HELP</div>
+                        <a class="link-light" href="payments">Payments</a>
+                        <a class="link-light" href="shipping">Shipping</a>
+                        <a class="link-light" href="c&r">Cancellation & Returns</a>
+                        <a class="link-light" href="faq">FAQ</a>
+                        <a class="link-light" href="report">Report Infringement</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> POLICY</div>
+                        <a class="link-light" href="policy">Return Policy</a>
+                        <a class="link-light" href="toc">Terms Of Use</a>
+                        <a class="link-light" href="security">Security</a>
+                        <a class="link-light" href="privacy">Privacy</a>
+                        <a class="link-light" href="sitemap">Sitemap</a>
+                        <a class="link-light" href="epr">EPR Compliance</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> SOCIAL</div>
+                        <a class="link-light" href="fb">Facebook</a>
+                        <a class="link-light" href="twitter">Twitter</a>
+                        <a class="link-light" href="yt">YouTube</a>
+                        <a class="link-light" href="ig">Instagram</a>
+
+                    </div>
+                    <div>
+                        <div class="d-flex flex-column">
+                            <div class="para2-footer">
+                                <div class="head " style="height:16.8px;">
+                                    <span>Mail Us:</span>
+                                </div>
+
+                                <div class="para-footer">
+                                    <p>PleasurePlaza Internet Private Limited,</p>
+                                    <p>Buildings Alyssa, Begonia &</p>
+                                    <p>Clove Embassy Tech Village,</p>
+                                    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                    <p>Bengaluru, 560103,</p>
+                                    <p>Karnataka, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 198.8px;
+                    width: 246.04px;">
+
+                        <div class="para3-footer d-flex flex-column">
+                            <div class="head" style="height:16.8px;">
+                                <span>Registered Office Address:</span>
+                            </div>
+
+                            <div class="para-footer">
+                                <p>PleasurePlaza Internet Private Limited,</p>
+                                <p>Buildings Alyssa, Begonia &</p>
+                                <p>Clove Embassy Tech Village,</p>
+                                <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                <p>Bengaluru, 560103,</p>
+                                <p>Karnataka, India</p>
+                                <p>CIN : U51109KA2012PTC066107</p>
+                                <p>Telephone: 1800 202 9898</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="lower-footer">
+                <div>
+                    <img src="{%static 'images/t1.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="sell">&nbsp Sell On PleasurePlaza</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t2.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="ad">&nbsp Advertise</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t3.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="gift">&nbsp Gift Card</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t4.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="help-center">&nbsp Help Center</a>
+                </div>
+                <span class="copyright">
+                    ©
+                    <!--  -->
+                    2007-2021
+                    <!--  -->
+                    <span>PleasurePlaza.com</span>
+                </span>
+                <img src="{%static 'images/t6.svg'%}">
+            </div>
+        </div>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    </body>
+
+</html>

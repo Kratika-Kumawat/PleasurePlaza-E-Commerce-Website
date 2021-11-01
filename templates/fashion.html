@@ -1,0 +1,849 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="icon" href="{%static 'images/fav.png'%}" type="image/gif">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+        <title>PleasurePlaza! Here to make your life easier.</title>
+        <style>
+            .search-bar {
+                width: 550px;
+            }
+
+            .navbar-dark .navbar-nav .nav-link {
+                color: white;
+                font-size: 1.18rem;
+                font-weight: 500;
+            }
+
+            .navbar-brand {
+                font-size: 25px;
+                font-weight: 750;
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .sub-navbar {
+                position: relative;
+                min-height: 40px;
+                color: #000;
+                width: 100%;
+                z-index: 6;
+                background-color: #fff;
+                box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
+            }
+
+
+
+            .sub-navbar2 {
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 40px;
+                margin: auto;
+                position: relative;
+                max-width: 1248px;
+                font-family: 'Roboto', sans-serif;
+
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .cat {
+                font-weight: 600;
+                text-decoration: none;
+
+            }
+
+            .cat:hover {
+                color: #2874f0;
+            }
+
+            .product {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                min-width: 978px;
+                max-width: 1680px;
+                padding: 8px;
+                background-color: rgb(238, 238, 238);
+            }
+
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .pro-img {
+                max-width: 280px;
+
+            }
+
+            .pro-info {
+                background-color: white;
+                margin-left: 8px;
+                width: 100%;
+            }
+
+            .para {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                margin: 0px;
+                padding: 0px
+            }
+
+            .para2 {
+                padding: 0px 0 4px;
+                margin: 0 15px;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+            }
+
+            .sort {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 16px;
+                font-weight: 550;
+                line-height: 19.6px;
+                text-decoration: none;
+                word-spacing: 0px;
+                padding-top: 2px;
+            }
+
+            .head-mob {
+                background: #fff;
+                padding: 12px 16px 0;
+                border-bottom: 1px solid #f0f0f0;
+                min-height: 72px;
+            }
+
+            .cardd {
+                line-height: 1;
+                padding: 24px 0 30px 24px;
+                display: block;
+                position: relative;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+
+            .pro-name {
+
+                font-size: 18px;
+                display: block;
+                cursor: pointer;
+            }
+
+            .pro-high {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .pro-high li {
+                /* Default bullets style erased */
+                list-style: none;
+            }
+
+            .pro-high li::before {
+                color: #878787;
+                content: "\2022";
+                display: inline-block;
+                width: 1em;
+
+                font-weight: bold;
+            }
+
+            .reviews {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 14px;
+                word-spacing: 0px;
+                color: #878787;
+                margin-left: 8px;
+                margin-top: 5px;
+            }
+
+            .price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                display: inline-block;
+                color: #212121;
+
+            }
+
+            .offer {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: -0.2px;
+                line-height: 13px;
+                text-decoration: none solid rgb(56, 142, 60);
+                word-spacing: 0px;
+                color: #388E3C;
+                margin-top: 6px;
+            }
+
+            .total-price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 14px;
+                text-decoration: line-through solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                padding-top: 5px;
+                margin-left: 9px;
+
+
+            }
+
+            .assure {
+                display: inline-block;
+                vertical-align: top;
+                font-size: 0;
+                padding-bottom: 4px;
+
+                margin-top: 3px;
+            }
+
+            .mainfooter {
+                background-color: #172337;
+                height: 353.6px;
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+            }
+
+            .cols {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 400;
+                display: block;
+                line-height: 24px;
+            }
+
+            .link-light {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                ;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light:hover {
+                color: #f8f9fa;
+                text-decoration: underline;
+            }
+
+            .subfooter {
+                height: 237.8px;
+                width: 1367.28px;
+                margin: 0 0 0 65px;
+                padding: 40px 0 0 0;
+            }
+
+            .row {
+                --bs-gutter-x: 0;
+
+            }
+
+            .head {
+                color: #878787;
+                font-size: 12px;
+                font-weight: 400;
+                margin-bottom: 13px;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .lower-footer {
+                border-top: 1px solid #454d5e;
+                padding: 25px 0;
+                margin-top: 40px;
+                width: 100%;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-justify-content: space-evenly;
+                -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+            .para-footer {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+                line-height: 17px;
+            }
+
+            .para2-footer {
+                border-left: 1px solid #454d5e;
+                padding: 0 25px 0 25px;
+                height: 131.4px;
+                width: 283.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .para-footer p {
+                margin: 0;
+                padding: 0;
+            }
+
+            .para3-footer {
+                margin: 0 0 10px 0;
+                padding: 0 0 0 14px;
+                height: 166.6px;
+                width: 246.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .link2 {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .copyright {
+                color: #f8f9fa;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 14px;
+            }
+
+            .link-light2 {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light2:hover {
+                color: #f8f9fa;
+            }
+
+            .pro-company {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 19.6px;
+                text-decoration: none;
+                word-spacing: 0px;
+                color: #878787;
+            }
+
+            .pro-title {
+                display: inline-block;
+                width: calc(100% - 80px);
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                padding: 0;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+            .pro-color {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 16.8px;
+                text-decoration: none;
+                color: #878787;
+                word-spacing: 0px;
+                padding: 0 0 5px 0;
+            }
+
+            .card {
+                border: 0px;
+                border-radius: 0px;
+            }
+
+            .card-img-top {
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+            }
+
+            .footer-detail div {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+
+            .footer-detail h2 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail h3 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail p {
+                color: #878787;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                margin: 0px;
+                padding: 0px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid ps-5 ms-5">
+                <a class="navbar-brand ps-5 ms-5" href="#">PleasurePlaza</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <form class="d-flex search-bar">
+                    <input class="form-control me-2" type="search" placeholder="Search for products,brands and more"
+                        aria-label="Search">
+                    <button class="btn btn-success bi bi-search" type="submit"></button>
+                </form>
+
+                <div class="collapse navbar-collapse ms-5 ps-5" id="navbarSupportedContent">
+                    <div class="d-flex me-4 ms-5 ps-5" style="margin-left: 15px;">
+                        <a href="login.html" class="btn btn-outline-light">Login</a>
+                    </div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown me-4">
+                            <a class="nav-link dropdown-toggle card-btn" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">SignUp</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="d-flex me-4">
+                                <a href="" class="btn bi bi-cart3 cart-btn btn-dark"> Cart <span
+                                        class="badge rounded-pill bg-danger">0</span></a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </nav>
+
+        <!-- SUB NAVBAR -->
+        <nav>
+            <div class="sub-navbar">
+                <div class="sub-navbar2">
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Mobiles</a>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Fashion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/fashion/Men">Men</a></li>
+                            <li><a class="dropdown-item" href="/fashion/Women">Women</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/fashion/Kids">Kids</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronics
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/laptop">Laptops</a></li>
+                            <li><a class="dropdown-item" href="/tablets">Tablets</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/headphone">Headphones</a></li>
+                            <li><a class="dropdown-item" href="/camera">Cameras</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Appliances
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/television">Televisions</a></li>
+                            <li><a class="dropdown-item" href="/washing_machine">Washing Machines</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/refrigerator">Refrigerators</a></li>
+                            <li><a class="dropdown-item" href="/air_conditioners">Air Conditioners</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Books</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- showing products -->
+        <!--  -->
+        <div class="product">
+            <div class="d-flex flex-row">
+                <div class="pro-img">
+                    <img src="{%static 'images/poster_fashion.jpg' %}" alt="" width="250px" height="750px">
+                </div>
+                <div class="d-flex flex-col pro-info">
+                    <div>
+                        <div class="head-mob">
+                            <p class="para">
+                                If you want to stay on top of the fashion trends, then you need to shop for the latest
+                                and trendiest topwear from an e-commerce site PleasurePlaza. Check out the amazing collection
+                                of topwear for women online and select the ones that suit you the best. Browse through
+                                stylish women’s topwear that are offered by popular brands, such as Only, Jockey, U&F,
+                                Darzi, Ann Springs, and more. Women can style a trendy tops with jeggings and sandals to
+                                nail the perfect casual look. Try pairing crop tops with denim shorts for the perfect
+                                summer look. Also, check out trendy topwear for men online that are sold by brands, such
+                                as Allen Solly, Wildcraft, FastColors, Smartees, Adidas, and more. Men can pair polo
+                                shirts & T-shirts with chinos and loafers for the perfect brunch or picnic look. To nail
+                                the perfect office look, men can pair formal shirts with trousers and formal shoes to
+                                look dapper and stylish. You can also buy trendy and fashionable topwear for kids from
+                                your favorite online shopping site. From T-shirts and tops to shirts and frocks, you can
+                                find fashionable and comfortable clothes online for your little ones.
+                            </p>
+                            <div class="d-flex justify-content-start" style="padding-top:5px;">
+                                <h5>Vouge</h5>
+                                <h6 style="padding-top: 3px;
+                                margin-left: 12px;">(Showing 1-9 products of 9 Products)</h6>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <span class="sort">
+                                    Sort By
+                                </span>
+                                <p class="para2">Popularity</p>
+                                <p class="para2">Price--Low To High</p>
+                                <p class="para2">Price--High To Low</p>
+                            </div>
+                        </div>
+                        <div style="padding: 8px">
+                            <div class="d-flex flex-row flex-wrap">
+                                {% for i in f %}
+
+                                <div style="width: 25%">
+                                    <div class="card" style="width: 18rem;">
+                                        <a href="">
+                                            <img src="{{i.img1.url}}" class="card-img-top" alt="..." height="347.75px"
+                                                width="267.3px">
+                                        </a>
+                                        <div class="card-body">
+                                            <div class="pro-company">
+                                                {{i.company_name}}
+                                            </div>
+                                            <div class="d-flex flex-row">
+                                                <a href="" class="pro-title link-dark">
+                                                    {{i.title}}
+                                                </a>
+                                                <div class="assure">
+                                                    <img src="{%static 'images/logo.png '%}" alt="" height=20px;
+                                                        width=77px;>
+                                                </div>
+                                            </div>
+                                            <div class="pro-color">
+                                                {{i.color}}
+                                            </div>
+                                            <a href="" style="text-decoration: none;">
+                                                <div class="d-flex flex-row">
+                                                    <div class="price link-dark">
+                                                        ₹{{i.price}}
+                                                    </div>
+                                                    {% for j in t %}
+                                                    {% if forloop.counter == forloop.parentloop.counter %}
+                                                    <p class="total-price">₹{{j}}</p>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                    {% for j in o %}
+                                                    {% if forloop.counter == forloop.parentloop.counter %}
+                                                    <p class="offer">&nbsp&nbsp&nbsp{{j}}% off</p>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div style="padding: 25px;">
+            <div class="footer-detail">
+                <div>
+                    <p>&nbsp;</p>
+
+                    <h2>Browse Through Latest Topwear for Men, Women, and Kids</h2>
+
+                    <div>Are you looking for ways to refresh your wardrobe? Stay up-to-date with the latest fashion
+                        trends by shopping for <strong>topwear </strong>from your favorite online shopping site
+                        PleasurePlaza. <a href="/womens-tops/pr?sid=clo%2Cash%2Cohw%2C36j">Tops</a>,<a
+                            href="/mens-shirts/pr?sid=clo%2Cash%2Caxc%2Cmmk"> shirts</a>, <a
+                            href="/clothing-and-accessories/innerwear-and-swimwear/vests/mens-vests/pr?sid=clo%2Cqfl%2Cwp7%2Czpk">vests</a>,
+                        <a href="/q/tank-tops">tank tops</a>, <a
+                            href="/womens-blouse-materials/pr?sid=clo%2C8on%2C5n9%2Chny">blouses</a>,<a
+                            href="/mens-tshirts/pr?sid=clo%2Cash%2Cank%2Cedy"> T-shirts</a>, crop tops, and more, name
+                        it and you can find the one you’re looking for on an online shopping store. Browse through the
+                        vast collection of men’s wear, women’s wear, and kid’s wear online and enjoy a hassle-free
+                        online shopping experience. You can avail amazing deals and discounts on your purchases when you
+                        shop online. Also, these clothes will be safely delivered to your doorstep in a couple of days.
+                        Look stunning and stylish at every event, party, or occasion by wearing trendy tops. Pair them
+                        with coordinating bottom wear and the right kind of footwear, and be ready to receive a ton of
+                        compliments wherever you go. When you wear the right type of clothing, you can nail any look, be
+                        it casual, formal, or party wear.&nbsp;</div>
+
+                    <p>&nbsp;</p>
+
+                    <div>&nbsp;</div>
+
+                    <div><strong>Explore Topwear Collections Online</strong></div>
+
+                    <div>&nbsp;</div>
+
+                    <div>Keep up with the changing fashion trends by shopping for the best men’s wear from your favorite
+                        e-commerce store. Check out the amazing collection of T-shirts for men that are offered by
+                        trending brands, such as FastColors, Try This, Smartees, Tripr, Wildcraft, Wrangler, Levi's,
+                        Lee, U.S. Polo Assn., W, Peter England, and more. You can buy these T-shirts in different neck
+                        types, like polo neck, button-down, shawl neck, collared neck, cowl neck, and more. You can also
+                        check out formal, casual, loungewear, beachwear, party wear shirts, and more online. Browse
+                        through the huge collection of shirts for men that are offered by popular brands, such as
+                        Highlander, Rope, Peter England, Levi's, Asian &amp; Fitch, Metronaut, and more. Also, check out
+                        some of the classy and stylish jackets, coats, blazers, and sweaters online.</div>
+
+                    <div>&nbsp;</div>
+
+                    <div>Whether you’re looking for office wear, party wear, casual wear, or home wear, online shopping
+                        sites have all types of tops that you’re looking for. Check out the trendy and sophisticated
+                        women’s tops online that are sold by brands, such as Vero Moda, People, Fleximaa, U&amp;F, Tokyo
+                        Talkies, Harpa, Rebound, Wrangler, Levi's, Lee, and more. You can buy shirts and T-shirts for
+                        women in solid colors or go for printed ones as well. Browse through the plethora of women’s
+                        shirts and choose the ones that best suit your sense of style.</div>
+
+                    <div>&nbsp;</div>
+
+                    <div>You can also buy stylish topwear for kids from an online store. You can browse through the
+                        fabulous collection of kid’s T-shirts and kid’s shirts and buy the ones that will best suit your
+                        little ones. Brands, such as Miss &amp; Chief, Gkidz, FabTag - Kiddeo, Allen Solly, and more
+                        have an amazing collection of kids’ wear.</div>
+
+                    <p>&nbsp;</p>
+
+                    <div>&nbsp;</div>
+
+                    <div><strong>Buy the Best Topwear Online</strong></div>
+
+                    <div>&nbsp;</div>
+
+                    <div>You can buy the topwear of your choice in just a few click/taps. Log in to PleasurePlaza through
+                        your smartphone, tablet, or laptop, browse through the amazing collection of tops, shirts, and
+                        blouses, choose the ones that you like, add them to the cart, and buy them in a convenient way.
+                        You can choose a preferred payment method during the checkout process. Online shopping helps you
+                        save time and lets you purchase the items of your choice even when you’re at home, traveling, or
+                        at the office.</div>
+
+                    <div>&nbsp;</div>
+
+                    <p>&nbsp;</p>
+
+                    <p>&nbsp;</p>
+
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="mainfooter">
+            <div class="subfooter row">
+                <div class="d-flex">
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;">ABOUT</div>
+                        <a class="link-light" href="contactus">Contact Us</a>
+                        <a class="link-light" href="aboutus">About Us</a>
+                        <a class="link-light" href="careers">Careers</a>
+                        <a class="link-light" href="stories">PleasurePlaza Stories</a>
+                        <a class="link-light" href="press">Press</a>
+                        <a class="link-light" href="wholesales">PleasurePlaza Wholesales</a>
+                        <a class="link-light" href="info">Corporate Information</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> HELP</div>
+                        <a class="link-light" href="payments">Payments</a>
+                        <a class="link-light" href="shipping">Shipping</a>
+                        <a class="link-light" href="c&r">Cancellation & Returns</a>
+                        <a class="link-light" href="faq">FAQ</a>
+                        <a class="link-light" href="report">Report Infringement</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> POLICY</div>
+                        <a class="link-light" href="policy">Return Policy</a>
+                        <a class="link-light" href="toc">Terms Of Use</a>
+                        <a class="link-light" href="security">Security</a>
+                        <a class="link-light" href="privacy">Privacy</a>
+                        <a class="link-light" href="sitemap">Sitemap</a>
+                        <a class="link-light" href="epr">EPR Compliance</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> SOCIAL</div>
+                        <a class="link-light" href="fb">Facebook</a>
+                        <a class="link-light" href="twitter">Twitter</a>
+                        <a class="link-light" href="yt">YouTube</a>
+                        <a class="link-light" href="ig">Instagram</a>
+
+                    </div>
+                    <div>
+                        <div class="d-flex flex-column">
+                            <div class="para2-footer">
+                                <div class="head " style="height:16.8px;">
+                                    <span>Mail Us:</span>
+                                </div>
+
+                                <div class="para-footer">
+                                    <p>PleasurePlaza Internet Private Limited,</p>
+                                    <p>Buildings Alyssa, Begonia &</p>
+                                    <p>Clove Embassy Tech Village,</p>
+                                    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                    <p>Bengaluru, 560103,</p>
+                                    <p>Karnataka, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 198.8px;
+                    width: 246.04px;">
+
+                        <div class="para3-footer d-flex flex-column">
+                            <div class="head" style="height:16.8px;">
+                                <span>Registered Office Address:</span>
+                            </div>
+
+                            <div class="para-footer">
+                                <p>PleasurePlaza Internet Private Limited,</p>
+                                <p>Buildings Alyssa, Begonia &</p>
+                                <p>Clove Embassy Tech Village,</p>
+                                <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                <p>Bengaluru, 560103,</p>
+                                <p>Karnataka, India</p>
+                                <p>CIN : U51109KA2012PTC066107</p>
+                                <p>Telephone: 1800 202 9898</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="lower-footer">
+                <div>
+                    <img src="{%static 'images/t1.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="sell">&nbsp Sell On PleasurePlaza</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t2.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="ad">&nbsp Advertise</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t3.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="gift">&nbsp Gift Card</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t4.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="help-center">&nbsp Help Center</a>
+                </div>
+                <span class="copyright">
+                    ©
+                    <!--  -->
+                    2007-2021
+                    <!--  -->
+                    <span>PleasurePlaza.com</span>
+                </span>
+                <img src="{%static 'images/t6.svg'%}">
+            </div>
+        </div>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    </body>
+
+</html>

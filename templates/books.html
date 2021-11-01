@@ -1,0 +1,855 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="icon" href="{%static 'images/fav.png'%}" type="image/gif">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+        <title>PleasurePlaza! Here to make your life easier.</title>
+        <style>
+            .search-bar {
+                width: 550px;
+            }
+
+            .navbar-dark .navbar-nav .nav-link {
+                color: white;
+                font-size: 1.18rem;
+                font-weight: 500;
+            }
+
+            .navbar-brand {
+                font-size: 25px;
+                font-weight: 750;
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .sub-navbar {
+                position: relative;
+                min-height: 40px;
+                color: #000;
+                width: 100%;
+                z-index: 6;
+                background-color: #fff;
+                box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
+            }
+
+
+
+            .sub-navbar2 {
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 40px;
+                margin: auto;
+                position: relative;
+                max-width: 1248px;
+                font-family: 'Roboto', sans-serif;
+
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .cat {
+                font-weight: 600;
+                text-decoration: none;
+
+            }
+
+            .cat:hover {
+                color: #2874f0;
+            }
+
+            .product {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                min-width: 978px;
+                max-width: 1680px;
+                padding: 8px;
+                background-color: rgb(238, 238, 238);
+            }
+
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .pro-img {
+                max-width: 280px;
+
+            }
+
+            .pro-info {
+                background-color: white;
+                margin-left: 8px;
+                width: 100%;
+            }
+
+            .para {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                margin: 0px;
+                padding: 0px
+            }
+
+            .para2 {
+                padding: 0px 0 4px;
+                margin: 0 15px;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+            }
+
+            .sort {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 16px;
+                font-weight: 550;
+                line-height: 19.6px;
+                text-decoration: none;
+                word-spacing: 0px;
+                padding-top: 2px;
+            }
+
+            .head-mob {
+                background: #fff;
+                padding: 12px 16px 0;
+                border-bottom: 1px solid #f0f0f0;
+                min-height: 72px;
+            }
+
+            .cardd {
+                line-height: 1;
+                padding: 24px 0 30px 24px;
+                display: block;
+                position: relative;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+
+            .pro-name {
+
+                font-size: 18px;
+                display: block;
+                cursor: pointer;
+            }
+
+            .pro-high {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .pro-high li {
+                /* Default bullets style erased */
+                list-style: none;
+            }
+
+            .pro-high li::before {
+                color: #878787;
+                content: "\2022";
+                display: inline-block;
+                width: 1em;
+
+                font-weight: bold;
+            }
+
+            .reviews {
+                padding-left: 8px;
+                font-weight: 500;
+                color: #878787;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+            }
+
+            .price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 16px;
+                font-weight: 600;
+                display: inline-block;
+                color: #212121;
+
+            }
+
+            .offer {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: -0.2px;
+                line-height: 13px;
+                text-decoration: none solid rgb(56, 142, 60);
+                word-spacing: 0px;
+                color: #388E3C;
+                margin-top: 6px;
+            }
+
+            .total-price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 14px;
+                text-decoration: line-through solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                margin-top: 5px;
+                margin-left: 9px;
+
+
+            }
+
+            .assure {
+                display: inline-block;
+                vertical-align: top;
+                font-size: 0;
+                padding-bottom: 2px;
+                padding-left: 9px;
+
+            }
+
+            .mainfooter {
+                background-color: #172337;
+                height: 353.6px;
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+            }
+
+            .cols {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 400;
+                display: block;
+                line-height: 24px;
+            }
+
+            .link-light {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                ;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light:hover {
+                color: #f8f9fa;
+                text-decoration: underline;
+            }
+
+            .subfooter {
+                height: 237.8px;
+                width: 1367.28px;
+                margin: 0 0 0 65px;
+                padding: 40px 0 0 0;
+            }
+
+            .row {
+                --bs-gutter-x: 0;
+
+            }
+
+            .head {
+                color: #878787;
+                font-size: 12px;
+                font-weight: 400;
+                margin-bottom: 13px;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .lower-footer {
+                border-top: 1px solid #454d5e;
+                padding: 25px 0;
+                margin-top: 40px;
+                width: 100%;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-justify-content: space-evenly;
+                -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+            .para-footer {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+                line-height: 17px;
+            }
+
+            .para2-footer {
+                border-left: 1px solid #454d5e;
+                padding: 0 25px 0 25px;
+                height: 131.4px;
+                width: 283.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .para-footer p {
+                margin: 0;
+                padding: 0;
+            }
+
+            .para3-footer {
+                margin: 0 0 10px 0;
+                padding: 0 0 0 14px;
+                height: 166.6px;
+                width: 246.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .link2 {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .copyright {
+                color: #f8f9fa;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 14px;
+            }
+
+            .link-light2 {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light2:hover {
+                color: #f8f9fa;
+            }
+
+            .pro-company {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 19.6px;
+                text-decoration: none;
+                word-spacing: 0px;
+                color: #878787;
+            }
+
+            .pro-title {
+                display: inline-block;
+                padding: 0;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+            .book-info {
+                font-family: Roboto, Arial, sans-serif;
+                margin-top: 5px;
+                font-size: 12px;
+                line-height: 16.8px;
+                text-decoration: none;
+                color: #878787;
+                word-spacing: 0px;
+                padding: 0 0 5px 0;
+            }
+
+            .card {
+                border: 0px;
+                border-radius: 0px;
+            }
+
+            .card-img-top {
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+            }
+
+            .footer-detail div {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+
+            .footer-detail h2 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail h3 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail p {
+                color: #878787;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                margin: 0px;
+                padding: 0px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid ps-5 ms-5">
+                <a class="navbar-brand ps-5 ms-5" href="/">PleasurePlaza</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <form class="d-flex search-bar">
+                    <input class="form-control me-2" type="search" placeholder="Search for products,brands and more"
+                        aria-label="Search">
+                    <button class="btn btn-success bi bi-search" type="submit"></button>
+                </form>
+
+                <div class="collapse navbar-collapse ms-5 ps-5" id="navbarSupportedContent">
+                    <div class="d-flex me-4 ms-5 ps-5" style="margin-left: 15px;">
+                        <a href="login.html" class="btn btn-outline-light">Login</a>
+                    </div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown me-4">
+                            <a class="nav-link dropdown-toggle card-btn" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">SignUp</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="d-flex me-4">
+                                <a href="" class="btn bi bi-cart3 cart-btn btn-dark"> Cart <span
+                                        class="badge rounded-pill bg-danger">0</span></a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </nav>
+
+        <!-- SUB NAVBAR -->
+        <nav>
+            <div class="sub-navbar">
+                <div class="sub-navbar2">
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Mobiles</a>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Fashion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/fashion/Men">Men</a></li>
+                            <li><a class="dropdown-item" href="/fashion/Women">Women</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/fashion/Kids">Kids</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronics
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/laptop">Laptops</a></li>
+                            <li><a class="dropdown-item" href="/tablets">Tablets</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/headphones">Headphones</a></li>
+                            <li><a class="dropdown-item" href="/camera">Cameras</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Appliances
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/television">Televisions</a></li>
+                            <li><a class="dropdown-item" href="/washing_machine">Washing Machines</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/refrigerator">Refrigerators</a></li>
+                            <li><a class="dropdown-item" href="/air_conditioners">Air Conditioners</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Books</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- showing products -->
+        <!--  -->
+        <div class="product">
+            <div class="d-flex flex-row">
+                <div class="pro-img">
+                    <img src="{%static 'images/poster_book.jpg' %}" alt="" width="250px" height="750px">
+                </div>
+                <div class="d-flex flex-col pro-info">
+                    <div>
+                        <div class="head-mob">
+                            <p class="para">
+                                Books can change lives, if you know what skills you are looking to improve. And, if you
+                                want to develop a better understanding of how attitude can change lives and help you be
+                                a success in life, then Jeff Keller’s Attitude Is Everything: Change Your Attitude...
+                                and You Change Your Life! is a wonderful book that you can read and follow. Every
+                                individual is born with many untapped potentials that can help to gain control and set
+                                the movement of life towards the right direction. This book offers step-by-step plans to
+                                help you achieve what you always wanted in terms of happiness and success. It has 12
+                                life lessons, namely 12 life lessons - Your Attitude is Your Window to the World, You're
+                                A Human Magnet, Picture Your Way to Success, Make a Commitment and You'll Move
+                                Mountains, Turn Your Problems into Opportunities, Your Words Blaze A Trail, How Are
+                                You?, Stop Complaining, Associate with Positive People, Confront Your Fears and Grow,
+                                Get Out There and Fail, and Networking That Gets Results. You can check out the Attitude
+                                Is Everything book price and get it delivered to your home. You can get other books on
+                                online stores too, including academic books.
+
+
+
+
+                            </p>
+                            <div class="d-flex justify-content-start" style="padding-top:5px;">
+                                <h5>Books</h5>
+                                <h6 style="padding-top: 3px;
+                                margin-left: 12px;">(Showing 1-6 products of 6 Products)</h6>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <span class="sort">
+                                    Sort By
+                                </span>
+                                <p class="para2">Popularity</p>
+                                <p class="para2">Price--Low To High</p>
+                                <p class="para2">Price--High To Low</p>
+                            </div>
+                        </div>
+                        <div style="padding: 8px">
+                            <div class="d-flex flex-row flex-wrap">
+                                {% for i in book %}
+
+                                <div style="width: 25%">
+                                    <div class="card" style="width: 18rem;">
+                                        <a href="">
+                                            <div class="d-flex justify-content-center">
+                                                <img src="{{i.img1.url}}" class="card-img-top" alt="..."
+                                                    style="width: 225px; height: 310px">
+                                            </div>
+                                        </a>
+                                        <div class="card-body">
+                                            <div class="pro-title">
+                                                <a href="" class="link-dark" style="text-decoration: none">
+                                                    {{i.title}}
+                                                </a>
+                                            </div>
+                                            <div class="book-info">
+                                                {{i.info}}
+                                            </div>
+                                            <div class="d-flex flex-row align-items-end">
+                                                <div>
+                                                    <span class="badge bg-success">{{i.rating}} <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                            style="vertical-align: baseline;" fill="currentColor"
+                                                            class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                        </svg></span>
+                                                </div>
+                                                <div class="reviews">
+                                                    {% for j in r2 %}
+                                                    {% if forloop.counter == forloop.parentloop.counter %}
+                                                    ({{j}})
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                                <div class="assure">
+                                                    <img src="{%static 'images/logo.png '%}" alt="" height=20px;
+                                                        width=77px;>
+                                                </div>
+                                            </div>
+                                            <a href="" style="text-decoration: none;">
+                                                <div class="d-flex flex-row" style="    margin-top: 5px;">
+                                                    <div class="price link-dark">
+                                                        ₹{{i.price}}
+                                                    </div>
+                                                    {% for j in t %}
+                                                    {% if forloop.counter == forloop.parentloop.counter %}
+                                                    <div class="total-price">₹{{j}}</div>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                    {% for j in o %}
+                                                    {% if forloop.counter == forloop.parentloop.counter %}
+                                                    <div class="offer">&nbsp&nbsp&nbsp{{j}}% off</div>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div style="padding: 25px;">
+            <div class="footer-detail">
+                <div>
+                    <p></p>
+                    <h2>Buy Popular Self-help Books Online</h2>
+                    <div><br></div>
+                    <div>Reading books can have a number of promising benefits. It not only improves your reasoning
+                        power, but also helps minimise depressive symptoms. Among all transformative books, self-help
+                        books are worth mentioning. They can leave tremendous effects on the reader. These books help
+                        you practice the strategies that you read and thereby improve your way of thinking. These books
+                        can also boost your self-confidence and help you deal with various challenging situations
+                        without asking help from others. These books come with mountains of knowledge with some
+                        real-life examples that make you believe that anything and everything is possible. It’s okay to
+                        feel lost at times because there are always possibilities of finding your way back again. If
+                        you’re planning to buy these books, you’ve landed on the right page. Online stores have the best
+                        self-help books to choose from. They are written by some of the renowned writers and
+                        philosophers, such as <a
+                            href="/books/selfhelp-books/sadhguru~contributor/pr?sid=bks,5uw">Sadhguru</a>, <a
+                            href="/books/selfhelp-books/jay-shetty~contributor/pr?sid=bks,5uw">Jay Shetty</a>, Mark
+                        Mansion, <a href="/books/robin-sharma~contributor/pr?sid=bks">Robin Sharma</a> and more. With
+                        online shopping, you can buy the book of your choice without having to step out of your home.
+                    </div>
+                    <div><br></div>
+                    <p><br></p>
+                    <div>Some of the popular inspiring books that you can find online are:</div>
+                    <div><br></div>
+                    <div>a.<span>The Secret, Rhonda Byrne</span></div>
+                    <div>
+                        <p>b.<span>You Can Win, Shiv Khera</span></p>
+                        <p></p>
+                        <p>c.<span>Chanakya In Daily Life, Radhakrishnan Pillai</span></p>
+                        <p></p>
+                        <p>d.<span>Learning How To Fly - Life Lessons for the Youth, A. P. J. Kalam Abdul</span></p>
+                        <p></p>
+                        <p>e.<span>The Science of Mind Management, Swami Mukundananda</span></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div><br></div>
+                    <div><b>Advantages of Reading Self-help Books</b></div>
+                    <div><br></div>
+                    <div>No one in this world is perfect and there are always some areas that need improvement. We all
+                        are fighting to make those improvements in life. Whether you want to be more patient, more
+                        outgoing or more confident, there are always ways to become the person you aspire to be. A book
+                        helps you achieve your desired skills to a certain degree. Let’s discuss a few benefits of
+                        reading an inspiring book:</div>
+                    <div><br></div>
+                    <p><br></p>
+                    <div><b>Channels You Towards Positive Thinking</b></div>
+                    <div><br></div>
+                    <div>Positive thinking can take you places. Your brain tends to capture positive words and concepts
+                        by reading an inspiring book. This keeps you positive and happy, so you can deal with various
+                        challenging situations confidently. Most inspiring books have exercises that allow you to
+                        rethink your choices and thereby make better and improved choices in life. With a positive
+                        outlook, you can evaluate your life and make the required changes without a feeling of remorse.
+                    </div>
+                    <p><br></p>
+                    <div><br></div>
+                    <div><b>Expands Your Knowledge</b></div>
+                    <div><br></div>
+                    <div>We all try to improve, but we should always look for enhancement. Personal development doesn’t
+                        mean you always need improvement, it means expanding the knowledge that you already have. When
+                        you start believing in yourself and your actions, you can fight your limitations and experience
+                        new things in life that you earlier didn’t have the courage to go for.</div>
+                    <div><br></div>
+                    <div><br></div>
+                    <p></p>
+                    <p><br></p>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="mainfooter">
+            <div class="subfooter row">
+                <div class="d-flex">
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;">ABOUT</div>
+                        <a class="link-light" href="contactus">Contact Us</a>
+                        <a class="link-light" href="aboutus">About Us</a>
+                        <a class="link-light" href="careers">Careers</a>
+                        <a class="link-light" href="stories">PleasurePlaza Stories</a>
+                        <a class="link-light" href="press">Press</a>
+                        <a class="link-light" href="wholesales">PleasurePlaza Wholesales</a>
+                        <a class="link-light" href="info">Corporate Information</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> HELP</div>
+                        <a class="link-light" href="payments">Payments</a>
+                        <a class="link-light" href="shipping">Shipping</a>
+                        <a class="link-light" href="c&r">Cancellation & Returns</a>
+                        <a class="link-light" href="faq">FAQ</a>
+                        <a class="link-light" href="report">Report Infringement</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> POLICY</div>
+                        <a class="link-light" href="policy">Return Policy</a>
+                        <a class="link-light" href="toc">Terms Of Use</a>
+                        <a class="link-light" href="security">Security</a>
+                        <a class="link-light" href="privacy">Privacy</a>
+                        <a class="link-light" href="sitemap">Sitemap</a>
+                        <a class="link-light" href="epr">EPR Compliance</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> SOCIAL</div>
+                        <a class="link-light" href="fb">Facebook</a>
+                        <a class="link-light" href="twitter">Twitter</a>
+                        <a class="link-light" href="yt">YouTube</a>
+                        <a class="link-light" href="ig">Instagram</a>
+
+                    </div>
+                    <div>
+                        <div class="d-flex flex-column">
+                            <div class="para2-footer">
+                                <div class="head " style="height:16.8px;">
+                                    <span>Mail Us:</span>
+                                </div>
+
+                                <div class="para-footer">
+                                    <p>PleasurePlaza Internet Private Limited,</p>
+                                    <p>Buildings Alyssa, Begonia &</p>
+                                    <p>Clove Embassy Tech Village,</p>
+                                    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                    <p>Bengaluru, 560103,</p>
+                                    <p>Karnataka, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 198.8px;
+                    width: 246.04px;">
+
+                        <div class="para3-footer d-flex flex-column">
+                            <div class="head" style="height:16.8px;">
+                                <span>Registered Office Address:</span>
+                            </div>
+
+                            <div class="para-footer">
+                                <p>PleasurePlaza Internet Private Limited,</p>
+                                <p>Buildings Alyssa, Begonia &</p>
+                                <p>Clove Embassy Tech Village,</p>
+                                <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                <p>Bengaluru, 560103,</p>
+                                <p>Karnataka, India</p>
+                                <p>CIN : U51109KA2012PTC066107</p>
+                                <p>Telephone: 1800 202 9898</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="lower-footer">
+                <div>
+                    <img src="{%static 'images/t1.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="sell">&nbsp Sell On PleasurePlaza</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t2.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="ad">&nbsp Advertise</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t3.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="gift">&nbsp Gift Card</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t4.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="help-center">&nbsp Help Center</a>
+                </div>
+                <span class="copyright">
+                    ©
+                    <!--  -->
+                    2007-2021
+                    <!--  -->
+                    <span>PleasurePlaza.com</span>
+                </span>
+                <img src="{%static 'images/t6.svg'%}">
+            </div>
+        </div>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    </body>
+
+</html>

@@ -1,0 +1,1612 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="icon" href="{%static 'images/fav.png'%}" type="image/gif">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <title>PleasurePlaza! Here to make your life easier.</title>
+        <style>
+            .search-bar {
+                width: 550px;
+            }
+
+            .navbar-dark .navbar-nav .nav-link {
+                color: white;
+                font-size: 1.18rem;
+                font-weight: 500;
+            }
+
+            .navbar-brand {
+                font-size: 25px;
+                font-weight: 750;
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .cat {
+                font-weight: 500;
+
+            }
+
+            .nav2 {
+                background-color: #FFFFFF;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 1px 0px;
+                height: 111.8px;
+            }
+
+            .carousel-control-next,
+            .carousel-control-prev {
+                width: 4%;
+                position: absolute;
+                top: 88px;
+                bottom: 88px;
+            }
+
+            .card {
+                word-wrap: normal;
+                width: 16rem;
+            }
+
+            .card1 {
+                height: 288px;
+                border: none;
+
+            }
+
+            .cards {
+                box-shadow: rgba(0, 0, 0, 0.09) 4px 2px 4px 2px;
+                border-top-left-radius: 2px;
+                border-top-right-radius: 2px;
+                border-bottom-left-radius: 2px;
+                border-bottom-right-radius: 2px;
+            }
+
+            .link {
+                text-decoration: none;
+                color: black;
+                font-weight: 500;
+            }
+
+            .link:hover {
+                color: #2874f0;
+            }
+
+            .card-img-top {
+                width: 70%;
+            }
+
+            .carousel-control-next-icon,
+            .carousel-control-prev-icon {
+                -webkit-filter: invert(100%);
+                filter: invert(100%);
+            }
+
+            .carousel-control-prev {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+            }
+
+            .carousel-control-next {
+                border-bottom-right-radius: 0px;
+                border-top-right-radius: 0px;
+            }
+
+            .carousel-btn {
+                background-color: white;
+                opacity: 0.9;
+                box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 5px 0px;
+                border-radius: 8px;
+                width: 47px;
+            }
+
+            .btn-light:hover {
+                color: #000;
+                background-color: #ebeef2;
+                border-color: #f9fafb;
+            }
+
+            .mainfooter {
+                background-color: #172337;
+                height: 352.6px;
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+            }
+
+
+
+            .cols {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 400;
+                display: block;
+                line-height: 24px;
+            }
+
+            .link-light {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family:'Roboto', sans-serif;;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light:hover {
+                color: #f8f9fa;
+                text-decoration: underline;
+            }
+            
+            .subfooter {
+                height: 237.8px;
+                width: 1367.28px;
+                margin: 0 0 0 65px;
+                padding: 40px 0 0 0;
+            }
+
+            .row {
+                --bs-gutter-x: 0;
+
+            }
+
+            .head {
+                color: #878787;
+                font-size: 12px;
+                font-weight: 400;
+                margin-bottom: 13px;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .para {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+                line-height: 17px;
+            }
+
+            .para2 {
+                border-left: 1px solid #454d5e;
+                padding: 0 25px 0 25px;
+                height: 131.4px;
+                width: 283.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .para p {
+                margin: 0;
+                padding: 0;
+            }
+
+            .para3 {
+                margin: 0 0 10px 0;
+                padding: 0 0 0 14px;
+                height: 166.6px;
+                width: 246.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .lower-footer {
+                border-top: 1px solid #454d5e;
+                padding: 25px 0;
+                margin-top: 40px;
+                width: 100%;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-justify-content: space-evenly;
+                -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+            .link2 {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+            .copyright{
+                color: #f8f9fa;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 14px;
+            }
+            .link-light2{
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+            }
+            .link-light2:hover{
+                color: #f8f9fa;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid ps-5 ms-5">
+                <a class="navbar-brand ps-5 ms-5" href=''>PleasurePlaza</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <form class="d-flex search-bar">
+                    <input class="form-control me-2" type="search" placeholder="Search for products,brands and more"
+                        aria-label="Search">
+                    <button class="btn btn-success bi bi-search" type="submit"></button>
+                </form>
+
+                <div class="collapse navbar-collapse ms-5 ps-5" id="navbarSupportedContent">
+                    <div class="d-flex me-4 ms-5 ps-5" style="margin-left: 15px;">
+                        <a href="login.html" class="btn btn-outline-light">Login</a>
+                    </div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown me-4">
+                            <a class="nav-link dropdown-toggle card-btn" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">SignUp</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="d-flex me-4">
+                                <a href="" class="btn bi bi-cart3 cart-btn btn-dark"> Cart <span
+                                        class="badge rounded-pill bg-danger">0</span></a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </nav>
+
+        <!-- CHOTA NAVBAR -->
+
+        <nav class="navbar navbar-expand-lg navbar navbar-light bg-light nav2">
+            <div class="container-fluid ps-5 ms-5 pe-5 me-5">
+                <div class="px-5">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{%static 'images/offers.jpg'%}" height="64px" width="64px">
+                        <a class="nav-link link-dark cat" href="#">Top Offers</a>
+                    </div>
+                </div>
+                <div class="px-5">
+                    <div class="d-flex flex-column align-items-center">
+                        <a href="mobilead"><img src="{%static 'images/mobile.jpg'%}" height="64px" width="64px"></a>
+                        <a class="nav-link link-dark cat" href="mobilead">Mobiles</a>
+                    </div>
+                </div>
+
+                <div class="px-5">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{%static 'images/fashion.png'%}" height="64px" width="64px">
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Fashion
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/fashion/Men">Men</a></li>
+                                <li><a class="dropdown-item" href="/fashion/Women">Women</a></li>
+                                <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                                <li><a class="dropdown-item" href="/fashion/Kids">Kids</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="px-5">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{%static 'images/electronics.png'%}" height="64px" width="64px">
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Electronics
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="laptop">Laptops</a></li>
+                                <li><a class="dropdown-item" href="tablets">Tablets</a></li>
+                                <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                                <li><a class="dropdown-item" href="headphones">Headphones</a></li>
+                                <li><a class="dropdown-item" href="camera">Cameras</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-5">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{%static 'images/app.png'%}" height="64px" width="64px">
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Appliances
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="television">Televisions</a></li>
+                                <li><a class="dropdown-item" href="washing_machine">Washing Machines</a></li>
+                                <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                                <li><a class="dropdown-item" href="refrigerator">Refrigerators</a></li>
+                                <li><a class="dropdown-item" href="air_conditioners">Air Conditioners</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-5">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{%static 'images/books.jpg'%}" height="64px" width="64px">
+                        <a class="nav-link link-dark cat" href="#">Books</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- BADA WALA SLIDER -->
+
+        <div class="my-2 ps-2 pe-2">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <img src="{%static 'images/s1.jpg'%}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="{%static 'images/s2.jpg'%}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="{%static 'images/s3.jpg'%}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="{%static 'images/s4.jpg'%}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="{%static 'images/s5.jpg'%}" class="d-block w-100" alt="..." height="252.312px"
+                            width="1520px">
+                    </div>
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button"
+                    data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button"
+                    data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDERS FOR PRODUCTS -->
+        <!-- Mobiles -->
+        <div class="d-flex flex-row cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/mob.png'%}" class="card-img-top" alt="..." style="padding-top: 20px" ;
+                        height="200px">
+                    <h5 style="text-align: center; padding-top:25px" class="card-title">Great Deals on Mobiles</h5>
+                    <p class="card-text"></p>
+                    <a href="mobile" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div id="Mobiles" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-row">
+                            {% for i in m1 %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="mobile"><img src="{{i.img1.url}}" style="width:130px; padding:10px 10px;"
+                                            class="card-img-top" alt="..." height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="mobile">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.product_name}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    
+                                    <a class="link" href="mobile">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{i.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% for i in m2 %}
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            {% for j in i %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="mobile"><img src="{{j.img1.url}}" style="width:130px;
+                                        padding: 10px 10px;" class="card-img-top" alt="..." height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="mobile">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.product_name}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{j.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="mobile">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{j.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button" data-bs-target="#Mobiles"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button" data-bs-target="#Mobiles"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Fashion -->
+        <div class="d-flex flex-row my-3 cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/fashion1.jpg'%}" class="card-img-top" alt="..." height="240px"
+                        style="padding-top: 15px; width: 180px">
+                    <h5 style="text-align: center; padding-top: 35px; margin-bottom: -0.5rem;" class="card-title">
+                        Today's Fashion Deals</h5>
+                    <p class="card-text"></p>
+                    <a href="/fashion/all" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div id="Fashion" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-row">
+                            {% for i in f1 %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="/fashion/all"><img src="{{i.img1.url}}" style="width:205px;
+                                        padding: 10px 10px;
+                                        height: 220px;" class="card-img-top" alt="..." height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="/fashion/all">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.title}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="/fashion/all">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{i.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% for i in f2 %}
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            {% for j in i %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="/fashion/all"><img src="{{j.img1.url}}" style="width:205px;
+                                        padding: 10px 10px;
+                                        height: 220px;" class="card-img-top" alt="..." height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="/fashion/all">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.title}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{j.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="/fashion/all">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{j.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button" data-bs-target="#Fashion"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button" data-bs-target="#Fashion"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Laptop -->
+        <div class="d-flex flex-row my-3 cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/lap.png'%}" class="card-img-top" alt="..." style="width: 230px;
+                    height: 290px;">
+                    <h5 style="text-align: center; margin-bottom: -0.5rem;" class="card-title">Trending Deals on Laptops
+                    </h5>
+                    <p class="card-text"></p>
+                    <a href="laptop" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div id="Laptop" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-row">
+                            {% for i in l1 %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="laptop"><img src="{{i.img1.url}}"
+                                            style="    width: 195px;height: 155px; padding-top: 15px;"
+                                            class="card-img-top" alt="..." height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="laptop">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.product_name}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="laptop">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{i.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% for i in l2 %}
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            {% for j in i %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="laptop"><img src="{{j.img1.url}}"
+                                            style="    width: 195px;height: 155px; padding-top: 15px;"
+                                            class="card-img-top" alt="..." height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="laptop">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.product_name}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{j.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="laptop">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{j.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button" data-bs-target="#Laptop"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button" data-bs-target="#Laptop"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- television -->
+        <div class="d-flex flex-row my-3 cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/tele.jpg'%}" class="card-img-top" alt="..."
+                        style="width: 200px ;height: 180px">
+                    <h5 style="text-align: center; margin-bottom: -0.5rem;" class="card-title">Top Deals on Televisions
+                        Buy Now</h5>
+                    <p class="card-text"></p>
+                    <a href="television" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div id="Television" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-row">
+                            {% for i in t1 %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="television"><img src="{{i.img1.url}}"
+                                            style="width: 195px;height: 155px; padding-top: 15px;" class="card-img-top"
+                                            alt="..." height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="television">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.product_name}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="television">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{i.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% for i in t2 %}
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            {% for j in i %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center ">
+                                    <a href="television"><img src="{{j.img1.url}}"
+                                            style="width: 195px;height: 155px; padding-top: 15px;" class="card-img-top"
+                                            alt="..."></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="television">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.product_name}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{j.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="television">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{j.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button"
+                    data-bs-target="#Television" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button"
+                    data-bs-target="#Television" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- headphones -->
+        <div class="d-flex flex-row my-3 cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/h1.jpg'%}" class="card-img-top" alt="..."
+                        style="height:185px; width: 180px; padding-top: 10px;">
+                    <h5 style="text-align: center; padding-top: 10px;margin-bottom: -0.5rem;" class="card-title">Top
+                        Deals On Headphones Buy Now</h5>
+                    <p class="card-text"></p>
+                    <a href="headphones" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div id="Headphone" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-row">
+                            {% for i in h1 %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="headphones"><img src="{{i.img1.url}}" style="width: 150px;
+                                            height: 180px;; padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="headphones">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.product_name}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="headphones">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{i.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% for i in h2 %}
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            {% for j in i %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="headphones"><img src="{{j.img1.url}}" style="width: 150px;
+                                            height: 180px;; padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="headphones">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.product_name}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{j.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="headphones">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{j.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button"
+                    data-bs-target="#Headphone" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button"
+                    data-bs-target="#Headphone" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- washing machine -->
+        <div class="d-flex flex-row my-3 cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/wm.jpeg'%}" class="card-img-top" alt="..."
+                        style="height:190px; width:230px">
+                    <h5 style="text-align: center;margin-bottom: -0.5rem; padding-top: 5px" class="card-title">Top Deals
+                        On Washing Machines Buy Now</h5>
+                    <p class="card-text"></p>
+                    <a href="washing_machine" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div id="Washing_Machines" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-row">
+                            {% for i in w1 %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="washing_machine"><img src="{{i.img1.url}}" style="width: 170px;
+                                            height: 180px;; padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="washing_machine">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.product_name}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="washing_machine">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{i.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% for i in w2 %}
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            {% for j in i %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="washing_machine"><img src="{{j.img1.url}}" style="width: 170px;
+                                            height: 180px;; padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="washing_machine">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.product_name}}</h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{j.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="washing_machine">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">₹{{j.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button"
+                    data-bs-target="#Washing_Machines" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button"
+                    data-bs-target="#Washing_Machines" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- refrigerators -->
+        <div class="d-flex flex-row my-3 cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/rr.png'%}" class="card-img-top" alt="..."
+                        style="height:185px; width: 230px">
+                    <h5 style="text-align: center; margin-bottom: -0.5rem; padding-top: 10px;" class="card-title">Best
+                        Deals On Refrigerators Buy Now</h5>
+                    <p class="card-text"></p>
+                    <a href="refrigerator" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-inner">
+                    <div id="Refrigerators" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                        <div class="carousel-item active">
+                            <div class="d-flex flex-row">
+                                {% for i in r1 %}
+                                <div class="card">
+                                    <div class="d-flex justify-content-center">
+                                        <a href="refrigerator"><img src="{{i.img1.url}}" style="width: 120px;
+                                                height: 250px;; padding-top: 15px;" class="card-img-top" alt="..."
+                                                height="200px"></a>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="link" href="refrigerator">
+                                            <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.product_name}}
+                                            </h5>
+                                        </a>
+                                        <p class="card-text" style="margin-bottom: 0.2rem;">
+                                            <span class="badge bg-success">{{i.rating}} <svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                    style="vertical-align: baseline;" fill="currentColor"
+                                                    class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                </svg></span>
+                                        </p>
+                                        <a class="link" href="refrigerator">
+                                            <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">
+                                                ₹{{i.price}}
+                                            </p>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% for i in r2 %}
+                        <div class="carousel-item">
+                            <div class="d-flex flex-row">
+                                {% for j in i %}
+                                <div class="card">
+                                    <div class="d-flex justify-content-center">
+                                        <a href="refrigerator"><img src="{{j.img1.url}}" style="width: 120px;
+                                                height: 250px; padding-top: 15px;" class="card-img-top" alt="..."
+                                                height="200px"></a>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="link" href="refrigerator">
+                                            <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.product_name}}
+                                            </h5>
+                                        </a>
+                                        <p class="card-text" style="margin-bottom: 0.2rem;">
+                                            <span class="badge bg-success">{{j.rating}} <svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                    style="vertical-align: baseline;" fill="currentColor"
+                                                    class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                </svg></span>
+                                        </p>
+                                        <a class="link" href="refrigerator">
+                                            <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">
+                                                ₹{{j.price}}
+                                            </p>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor%}
+
+                    </div>
+                    <button class="carousel-control-prev btn btn-light carousel-btn" type="button"
+                        data-bs-target="#Refrigerators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next btn btn-light carousel-btn" type="button"
+                        data-bs-target="#Refrigerators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- AC -->
+        <div class="d-flex flex-row my-3 cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/ac.jpg'%}" class="card-img-top" alt="..."
+                        style="height:200px; width:240px">
+                    <h5 style="text-align: center; margin-bottom: -0.5rem;" class="card-title">Top Deals On Air
+                        Conditioners Buy Now</h5>
+                    <p class="card-text"></p>
+                    <a href="air_conditioners" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div id="AC" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-row">
+                            {% for i in a1 %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="air_conditioners"><img src="{{i.img1.url}}" style="width: 230px;
+                                        height: 90px; padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="air_conditioners">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.product_name}}
+                                        </h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="air_conditioners">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">
+                                            ₹{{i.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% for i in a2 %}
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            {% for j in i %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="air_conditioners"><img src="{{j.img1.url}}" style="width: 230px;
+                                        height: 90px; padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="air_conditioners">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.product_name}}
+                                        </h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{j.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="air_conditioners">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">
+                                            ₹{{j.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button" data-bs-target="#AC"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button" data-bs-target="#AC"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- tablets -->
+
+        <div class="d-flex flex-row my-3 cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/tab.jpg'%}" class="card-img-top" alt="..."
+                        style="height:180px; width:200px">
+                    <h5 style="text-align: center; margin-bottom: -0.5rem; padding-top: 10px" class="card-title">Top
+                        Deals On Tablets Buy Now</h5>
+                    <p class="card-text"></p>
+                    <a href="tablets" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div id="Tab" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-row">
+                            {% for i in tab1 %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="tablets"><img src="{{i.img1.url}}" style="width: 140px;
+                                        height: 190px; padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="tablets">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.product_name}}
+                                        </h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="tablets">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">
+                                            ₹{{i.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% for i in tab2 %}
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            {% for j in i %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="tablets"><img src="{{j.img1.url}}" style="width: 140px;
+                                        height: 190px; padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="tablets">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.product_name}}
+                                        </h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{j.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="tablets">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">
+                                            ₹{{j.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button" data-bs-target="#Tab"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button" data-bs-target="#Tab"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- camera -->
+        <div class="d-flex flex-row my-3 cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/cam.jpg'%}" class="card-img-top" alt="..."
+                        style="height:180px; width:240px ">
+                    <h5 style="text-align: center; margin-bottom: -0.5rem; padding-top: 15px" class="card-title">
+                        Trending Deals On Camera Buy Now</h5>
+                    <p class="card-text"></p>
+                    <a href="camera" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div id="Camera" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-row">
+                            {% for i in c1 %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="camera"><img src="{{i.img1.url}}" style="width: 230px;
+                                        height: 170px;padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="camera">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.product_name}}
+                                        </h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="camera">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">
+                                            ₹{{i.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% for i in c2 %}
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            {% for j in i %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="camera"><img src="{{j.img1.url}}" style="width: 230px;
+                                        height: 170px; padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="camera">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.product_name}}
+                                        </h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{j.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="camera">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">
+                                            ₹{{j.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button" data-bs-target="#Camera"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button" data-bs-target="#Camera"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- books -->
+        <div class="d-flex flex-row my-3 cards">
+            <div>
+                <div class="card d-flex align-items-center card1">
+                    <img src="{%static 'images/book.jpg'%}" class="card-img-top" alt="..."
+                        style="height:200px; width: 220px;">
+                    <h5 style="text-align: center; padding-top: 10px; margin-bottom: -0.5rem;" class="card-title">
+                        Exciting Deals On Books Buy Now</h5>
+                    <p class="card-text"></p>
+                    <a href="books" class="btn btn-primary">View All</a>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div id="Book" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-row">
+                            {% for i in b1 %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="books"><img src="{{i.img1.url}}" style="width: 200px;
+                                        height: 260px;;padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="books">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{i.title}}
+                                        </h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="books">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">
+                                            ₹{{i.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% for i in b2 %}
+                    <div class="carousel-item">
+                        <div class="d-flex flex-row">
+                            {% for j in i %}
+                            <div class="card">
+                                <div class="d-flex justify-content-center">
+                                    <a href="books"><img src="{{j.img1.url}}" style="width: 200px;
+                                        height: 260px; padding-top: 15px;" class="card-img-top" alt="..."
+                                            height="200px"></a>
+                                </div>
+                                <div class="card-body">
+                                    <a class="link" href="books">
+                                        <h5 class="card-title" style="margin-bottom: 0.3rem;">{{j.title}}
+                                        </h5>
+                                    </a>
+                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                        <span class="badge bg-success">{{j.rating}} <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                                style="vertical-align: baseline;" fill="currentColor"
+                                                class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                            </svg></span>
+                                    </p>
+                                    <a class="link" href="books">
+                                        <p class="card-text" style="margin-bottom: 0rem; font-size: 20px">
+                                            ₹{{j.price}}
+                                        </p>
+                                    </a>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                </div>
+                <button class="carousel-control-prev btn btn-light carousel-btn" type="button" data-bs-target="#Book"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next btn btn-light carousel-btn" type="button" data-bs-target="#Book"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="mainfooter">
+            <div class="subfooter row">
+                <div class="d-flex">
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;">ABOUT</div>
+                        <a class="link-light" href="contactus">Contact Us</a>
+                        <a class="link-light" href="aboutus">About Us</a>
+                        <a class="link-light" href="careers">Careers</a>
+                        <a class="link-light" href="stories">PleasurePlaza Stories</a>
+                        <a class="link-light" href="press">Press</a>
+                        <a class="link-light" href="wholesales">PleasurePlaza Wholesales</a>
+                        <a class="link-light" href="info">Corporate Information</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> HELP</div>
+                        <a class="link-light" href="payments">Payments</a>
+                        <a class="link-light" href="shipping">Shipping</a>
+                        <a class="link-light" href="c&r">Cancellation & Returns</a>
+                        <a class="link-light" href="faq">FAQ</a>
+                        <a class="link-light" href="report">Report Infringement</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> POLICY</div>
+                        <a class="link-light" href="policy">Return Policy</a>
+                        <a class="link-light" href="toc">Terms Of Use</a>
+                        <a class="link-light" href="security">Security</a>
+                        <a class="link-light" href="privacy">Privacy</a>
+                        <a class="link-light" href="sitemap">Sitemap</a>
+                        <a class="link-light" href="epr">EPR Compliance</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> SOCIAL</div>
+                        <a class="link-light" href="fb">Facebook</a>
+                        <a class="link-light" href="twitter">Twitter</a>
+                        <a class="link-light" href="yt">YouTube</a>
+                        <a class="link-light" href="ig">Instagram</a>
+
+                    </div>
+                    <div>
+                        <div class="d-flex flex-column">
+                            <div class="para2">
+                                <div class="head " style="height:16.8px;">
+                                    <span>Mail Us:</span>
+                                </div>
+
+                                <div class="para">
+                                    <p>PleasurePlaza Internet Private Limited,</p>
+                                    <p>Buildings Alyssa, Begonia &</p>
+                                    <p>Clove Embassy Tech Village,</p>
+                                    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                    <p>Bengaluru, 560103,</p>
+                                    <p>Karnataka, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 198.8px;
+                    width: 246.04px;">
+
+                        <div class="para3 d-flex flex-column">
+                            <div class="head" style="height:16.8px;">
+                                <span>Registered Office Address:</span>
+                            </div>
+
+                            <div class="para">
+                                <p>PleasurePlaza Internet Private Limited,</p>
+                                <p>Buildings Alyssa, Begonia &</p>
+                                <p>Clove Embassy Tech Village,</p>
+                                <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                <p>Bengaluru, 560103,</p>
+                                <p>Karnataka, India</p>
+                                <p>CIN : U51109KA2012PTC066107</p>
+                                <p>Telephone: 1800 202 9898</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="lower-footer">
+                <div>
+                    <img src="{%static 'images/t1.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="sell">&nbsp Sell On PleasurePlaza</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t2.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="ad">&nbsp Advertise</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t3.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="gift">&nbsp Gift Card</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t4.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="help-center">&nbsp Help Center</a>
+                </div>
+                <span class="copyright">
+                    ©
+                    <!--  -->
+                    2007-2021
+                    <!--  -->
+                    <span>PleasurePlaza.com</span>
+                </span>
+                <img src="{%static 'images/t6.svg'%}">
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+        </script>
+
+
+    </body>
+
+</html>

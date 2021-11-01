@@ -1,0 +1,916 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link rel="icon" href="{%static 'images/fav.png'%}" type="image/gif">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+        <title>PleasurePlaza! Here to make your life easier.</title>
+        <style>
+            .search-bar {
+                width: 550px;
+            }
+
+            .navbar-dark .navbar-nav .nav-link {
+                color: white;
+                font-size: 1.18rem;
+                font-weight: 500;
+            }
+
+            .navbar-brand {
+                font-size: 25px;
+                font-weight: 750;
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .sub-navbar {
+                position: relative;
+                min-height: 40px;
+                color: #000;
+                width: 100%;
+                z-index: 6;
+                background-color: #fff;
+                box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
+            }
+
+
+
+            .sub-navbar2 {
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 40px;
+                margin: auto;
+                position: relative;
+                max-width: 1248px;
+                font-family: 'Roboto', sans-serif;
+
+            }
+
+            .cart-btn {
+                font-weight: 600;
+                font-size: 1.18rem;
+            }
+
+            .cat {
+                font-weight: 600;
+                text-decoration: none;
+
+            }
+
+            .cat:hover {
+                color: #2874f0;
+            }
+
+            .product {
+                width: 100%;
+                position: relative;
+                margin: 0 auto;
+                min-width: 978px;
+                max-width: 1680px;
+                padding: 8px;
+                background-color: rgb(238, 238, 238);
+            }
+
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .pro-img {
+                max-width: 280px;
+
+            }
+
+            .pro-info {
+                background-color: white;
+                margin-left: 8px;
+                width: 100%;
+            }
+
+            .para {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                margin: 0px;
+                padding: 0px
+            }
+
+            .para2 {
+                padding: 0px 0 4px;
+                margin: 0 10px;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+            }
+
+            .head-mob {
+                background: #fff;
+                padding: 12px 16px 0;
+                border-bottom: 1px solid #f0f0f0;
+                min-height: 72px;
+            }
+
+            .cardd {
+                line-height: 1;
+                padding: 24px 0 30px 24px;
+                display: block;
+                position: relative;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+
+            .pro-name {
+
+                font-size: 18px;
+                display: block;
+                cursor: pointer;
+            }
+
+            .pro-high {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .pro-high li {
+                /* Default bullets style erased */
+                list-style: none;
+            }
+
+            .pro-high li::before {
+                color: #878787;
+                content: "\2022";
+                display: inline-block;
+                width: 1em;
+
+                font-weight: bold;
+            }
+
+            .reviews {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 14px;
+                word-spacing: 0px;
+                color: #878787;
+                margin-left: 8px;
+                margin-top: 5px;
+            }
+
+            .price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 25px;
+                font-weight: 700;
+            }
+
+            .offer {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: -0.2px;
+                line-height: 13px;
+                text-decoration: none solid rgb(56, 142, 60);
+                word-spacing: 0px;
+                color: #388E3C;
+                margin-top: 12px;
+            }
+
+            .total-price {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 14px;
+                text-decoration: line-through solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                padding: 10px 0 0 0;
+
+            }
+
+            .assure {
+                display: inline-block;
+                vertical-align: top;
+                font-size: 0;
+                padding-bottom: 4px;
+                margin-left: 20px;
+                margin-top: 3px;
+            }
+
+            .mainfooter {
+                background-color: #172337;
+                height: 352.6px;
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+            }
+
+            .cols {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 400;
+                display: block;
+                line-height: 24px;
+            }
+
+            .link-light {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                ;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light:hover {
+                color: #f8f9fa;
+                text-decoration: underline;
+            }
+
+            .subfooter {
+                height: 237.8px;
+                width: 1367.28px;
+                margin: 0 0 0 65px;
+                padding: 40px 0 0 0;
+            }
+
+            .row {
+                --bs-gutter-x: 0;
+
+            }
+
+            .head {
+                color: #878787;
+                font-size: 12px;
+                font-weight: 400;
+                margin-bottom: 13px;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .lower-footer {
+                border-top: 1px solid #454d5e;
+                padding: 25px 0;
+                margin-top: 40px;
+                width: 100%;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-justify-content: space-evenly;
+                -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
+                -webkit-align-items: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+            .para-footer {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+                line-height: 17px;
+            }
+
+            .para2-footer {
+                border-left: 1px solid #454d5e;
+                padding: 0 25px 0 25px;
+                height: 131.4px;
+                width: 283.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .para-footer p {
+                margin: 0;
+                padding: 0;
+            }
+
+            .para3-footer {
+                margin: 0 0 10px 0;
+                padding: 0 0 0 14px;
+                height: 166.6px;
+                width: 246.038px;
+                display: block;
+                white-space: nowrap;
+            }
+
+            .link2 {
+                font-size: 14px;
+                font-family: Roboto, Arial, sans-serif;
+            }
+
+            .copyright {
+                color: #f8f9fa;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+                font-size: 14px;
+            }
+
+            .link-light2 {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+                text-align: left;
+                word-spacing: 0px;
+            }
+
+            .link-light2:hover {
+                color: #f8f9fa;
+            }
+
+            .footer-detail div {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                word-spacing: 0px;
+                color: #878787;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+
+            .footer-detail h2 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail h3 {
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+                text-decoration: none solid rgb(135, 135, 135);
+                text-align: left;
+                word-spacing: 0px;
+                color: #878787;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .footer-detail p {
+                color: #878787;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 17.4px;
+                text-decoration: none solid rgb(135, 135, 135);
+                margin: 0px;
+                padding: 0px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!-- MAIN NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <div class="container-fluid ps-5 ms-5">
+                <a class="navbar-brand ps-5 ms-5" href="#">PleasurePlaza</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <form class="d-flex search-bar">
+                    <input class="form-control me-2" type="search" placeholder="Search for products,brands and more"
+                        aria-label="Search">
+                    <button class="btn btn-success bi bi-search" type="submit"></button>
+                </form>
+
+                <div class="collapse navbar-collapse ms-5 ps-5" id="navbarSupportedContent">
+                    <div class="d-flex me-4 ms-5 ps-5" style="margin-left: 15px;">
+                        <a href="login.html" class="btn btn-outline-light">Login</a>
+                    </div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown me-4">
+                            <a class="nav-link dropdown-toggle card-btn" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                                <li><a class="dropdown-item" href="#">About Us</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">SignUp</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="d-flex me-4">
+                                <a href="" class="btn bi bi-cart3 cart-btn btn-dark"> Cart <span
+                                        class="badge rounded-pill bg-danger">0</span></a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </nav>
+
+        <!-- SUB NAVBAR -->
+        <nav>
+            <div class="sub-navbar">
+                <div class="sub-navbar2">
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Mobiles</a>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Fashion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/fashion/Men">Men</a></li>
+                            <li><a class="dropdown-item" href="/fashion/Women">Women</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="/fashion/Kids">Kids</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Electronics
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="laptop">Laptops</a></li>
+                            <li><a class="dropdown-item" href="tablets">Tablets</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="headphones">Headphones</a></li>
+                            <li><a class="dropdown-item" href="camera">Cameras</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle card-btn link-dark cat" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Appliances
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="television">Televisions</a></li>
+                            <li><a class="dropdown-item" href="washing_machine">Washing Machines</a></li>
+                            <!-- <li>
+                                    <hr class="dropdown-divider">
+                                </li> -->
+                            <li><a class="dropdown-item" href="refrigerator">Refrigerators</a></li>
+                            <li><a class="dropdown-item" href="air_conditioners">Air Conditioners</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a class="nav-link link-dark cat" href="#">Books</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- showing products -->
+        <!--  -->
+        <div class="product">
+            <div class="d-flex flex-row">
+                <div class="pro-img">
+                    <img src="{%static 'images/poster_tab.jpg' %}" alt="" width="250px" height="750px">
+                </div>
+                <div class="d-flex flex-col pro-info">
+                    <div>
+                        <div class="head-mob">
+                            <p class="para">
+                                Tablets have successfully replaced Laptops and other forms of computers today owing to
+                                the portability factor and size of the device. Buying a tablet is a worthy investment as
+                                it can provide the same functionality as a normal computer, yet be easy to carry around
+                                and have longer battery life too. Apple iPads, Samsung tablets, Lenovo tablets, Asus
+                                tablets and the like are a range of these devices that are manufactured with great
+                                features and specifications to make your life easier. With all the essential features
+                                like Wi-Fi connectivity, Bluetooth, GPS and many more, these devices are a perfect way
+                                of having all that you want in a computer, yet giving instant access to information. On
+                                16-Oct-21 Tablets collection is refreshed.
+                            </p>
+                            <div class="d-flex justify-content-start" style="padding-top:5px;">
+                                <h5>Tablets</h5>
+                                <h6 style="padding-top: 3px;
+                                margin-left: 12px;">(Showing 1-6 products of 6 Products)</h6>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <h6 style="margin-top: 2px;font-family: Roboto, Arial, sans-serif;">Sort By</h6>
+                                <p class="para2">Popularity</p>
+                                <p class="para2">Price--Low To High</p>
+                                <p class="para2">Price--High To Low</p>
+                            </div>
+                        </div>
+                        {% for i in tab %}
+                        <div>
+                            <div class="cardd">
+                                <a href="" style="text-decoration:none">
+                                    <div class="row">
+                                        <div class="col-md-2 d-flex justify-content-center">
+                                            <img class="img-fluid rounded-start" src="{{i.img1.url}}" alt="..." style="height: 170px;
+                                            width: 120px;
+                                            margin-top: 34px;">
+                                            <!-- <span class="heart">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-suit-heart-fill"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" />
+                                                </svg>
+                                            </span> -->
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div style="margin-left: 25px">
+                                                <div class="pro-name cat link-dark">
+                                                    {{i.product_name}}
+                                                </div>
+                                                <div style="margin-top: 10px;"
+                                                    class="link-dark d-flex justify-content-start">
+                                                    <p class="card-text" style="margin-bottom: 0.2rem;">
+                                                        <span class="badge bg-success">{{i.rating}} <svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="10"
+                                                                height="10" style="vertical-align: baseline;"
+                                                                fill="currentColor" class="bi bi-star-fill"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                            </svg></span>
+                                                        <div class="reviews">
+                                                            {% for j in r1 %}
+                                                            {% if forloop.counter == forloop.parentloop.counter %}
+                                                            {{j}}&nbspRatings &
+                                                            {% endif %}
+                                                            {% endfor %}
+                                                            {% for j in r2 %}
+                                                            {% if forloop.counter == forloop.parentloop.counter %}
+                                                            {{j}}&nbspReviews
+                                                            {% endif %}
+                                                            {% endfor %}
+
+
+                                                        </div>
+                                                    </p>
+
+                                                </div>
+                                                <div style="margin-top:13px;line-height: 20px;"
+                                                    class="link-dark pro-high">
+                                                    {% for j in h %}
+                                                    {% if forloop.counter == forloop.parentloop.counter %}
+                                                    {% for k in j %}
+                                                    <li>{{k}}</li>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                    <li>{{i.warranty}}</li>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="d-flex flex-row">
+                                                <div class="price link-dark">
+                                                    ₹{{i.price}}
+                                                </div>
+                                                <div class="assure">
+                                                    <img src="{%static 'images/logo.png '%}" alt="" height=20px;
+                                                        width=77px;>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row link-dark">
+                                                {% for j in t %}
+                                                {% if forloop.counter == forloop.parentloop.counter %}
+                                                <p class="total-price">₹{{j}}</p>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% for j in o %}
+                                                {% if forloop.counter == forloop.parentloop.counter %}
+                                                <p class="offer">&nbsp&nbsp&nbsp{{j}}% off</p>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding: 25px;">
+            <div class="footer-detail">
+                <div>
+                    <p></p>
+                    <h2>Buy Tablets Online at best Prices in India</h2>
+                    <p><br></p>
+                    <p>Tablets have helped us do shopping, order food, banking, booking tickets, sending gifts and
+                        everything else under the sun with a single click. No matter where you are, and what you’re
+                        doing, if you buy a tablet, you can get things done in seconds. They’re your personal banks,
+                        alarm clocks and entertainers. Putting it in one sentence -these devices are literally like your
+                        personal assistants. When you’re checking your tablet online, you’re checking into a world of
+                        opportunities. Want a new job? Open LinkedIn or any other job portal app on your device, update
+                        your details, and you’re sorted. Want to revamp your wardrobe? Shop online from wherever you are
+                        and get the clothes delivered to your doorstep. Want to transfer money to your family? This
+                        doesn't get any simpler - download your bank’s app, and just with a few clicks, you can transfer
+                        money anytime, irrespective of whether it’s a bank holiday or not. That’s not all, the things
+                        you can do with a tablet are innumerable.&nbsp;</p>
+                    <p><br></p>
+                    <h3>
+                        <p>Best Premium Tablets at competitive prices</p>
+                    </h3>
+                    <p><br></p>
+                    <p><b>Apple iPads</b></p>
+                    <p><span>Ever since their launch, iPads have been very popular amongst all generations. The <b><a
+                                    href="/tablets/~apple-ipads/pr?sid=tyy,hry">Apple iPad</a></b> is known for its
+                            light weight and Retina display. The iPad, like all other Apple products, uses iOS 10, which
+                            has brilliant applications and features like smarter multitasking, Control Centre and
+                            AirDrop. What’s more, this tablet also comes with a powerful A9 chip with 64-bit
+                            architecture that enhances performance.</span><br></p>
+                    <p><br></p>
+                    <p><b>Samsung Galaxy Tab S2</b></p>
+                    <p>This tab has a 9.7-inch display and an amazing battery life. This tablet uses Android operating
+                        system and has a storage space of 32 GB. The <b><a
+                                href="/samsung-galaxy-tab-s2-32-gb-9-7-inch-wi-fi-4g-tablet/p/itmefjn3g27gh8gx">Samsung
+                                Galaxy Tab S2</a></b> is powered by a 1.9 GHz processor and 3 GB of RAM which offers a
+                        seamless multitasking experience while its Android Lollipop OS ensures a user experience that’s
+                        as smooth as silk.</p>
+                    <p><br></p>
+                    <p><b>Lenovo Yoga Tab 3</b></p>
+                    <p><span>With an expansive 20.3 cm (8) IPS display and its two Dolby Atmos certified front-facing
+                            speakers, the Lenovo Yoga 3 tablet offers itself as the ideal entertainment companion for
+                            people who love movies. The incredible visuals displayed are accentuated by the tablet’s
+                            speakers which deliver loud, clear, and dynamic 3D surround sound.</span></p>
+                    <p><span><br></span></p>
+                    <p>Adjust your <b><a
+                                href="/lenovo-yoga-3-2-gb-ram-16-8-inch-wi-fi-4g-tablet/p/itmefuygsnmuzfgs">Lenovo Yoga
+                                3</a></b> tablet’s screen at an angle that’s comfortable for you. The tablet boasts four
+                        different modes, stand, tilt, hang, and hold. Seamless video streaming and downloading are
+                        facilitated by its 4G LTE network. This tablet supports 3G, Wi-Fi, and Bluetooth connectivity.
+                    </p>
+                    <p><br></p>
+                    <h3>
+                        <p>Buy the top-selling Tablets Online</p>
+                    </h3>
+                    <p><b><br></b></p>
+                    <p><b>Lenovo Tab 4</b></p>
+                    <p>This Lenovo tablet boasts of a long-lasting battery and a powerful processor which makes for
+                        seamless user experience. Its 8-inch HD display along with Dolby Atmos lets you enjoy
+                        picture-perfect visuals and immersive audio from Netflix or Youtube. Featuring a slim profile,
+                        this tablet can be easily carried around everywhere.</p>
+                    <p>&nbsp;</p>
+                    <p><b>Lenovo Phab 2</b></p>
+                    <p>With the <b><a href="/lenovo-phab-2-champagne-gold-32-gb/p/itmep4bhwqtfmpdd">Lenovo Phab
+                                2</a></b>, you can have entertainment at your fingertips. Featuring a slim body and a
+                        sturdy construction, this tablet offers great performance and sturdiness while its 16.25 cm HD
+                        screen makes for an immersive video experience. What’s more, with this tablet in your hands you
+                        won’t need a separate camera as it comes with a 13 MP rear camera and a 5 MP front camera.</p>
+                    <p><br></p>
+                    <p><b>Swipe Slate Pro</b></p>
+                    <p>Take your entertainment experience to the next level with this Swipe tablet. Powered by a 1.1 GHz
+                        quad-core processor and a 5000 mAh battery, this laptop ensures a seamless performance. Its
+                        10.1-inch HD IPS screen ensures a pleasing clarity while its 4G VoLTE connectivity makes for a
+                        glitch-free internet calling experience.&nbsp;</p>
+                    <p><br></p>
+                    <h3>
+                        <p>Best Budget Tablets</p>
+                    </h3>
+                    <p><b>Alcatel A3 10</b></p>
+                    <p>Whether you want to watch a movie in&nbsp;<span>HD or play a high-end game, this Alcatel A3
+                            tablet is all you will need. Powered by an MTK 8735B quad-core processor, this Android
+                            tablet not only takes your entertainment experience to the next level but it also ensures
+                            you have a great time multitasking. Play games, browse the internet, click pictures, records
+                            videos, watch movies, and </span>so<span> much more with this Alcatel budget-friendly
+                            device. With its powerful 4600 mAh battery, you can go </span>all day<span> long.</span><br>
+                    </p>
+                    <p><br></p>
+                    <p><b>Lenovo Tab3 Essential</b></p>
+                    <p>Whether you want to watch a movie, play a game, create a presentation or review one, with this
+                        Android device, you can do all of it effortlessly. What makes this a must-have is that its
+                        7-inch screen which enhances the entertainment experience. No matter where you are, be it at
+                        home or in office, you can always stay connected to your work mail and complete everything even
+                        while you are on the go. Equipped with MediaTek quad-core processor and 1 GB of RAM, this tablet
+                        offers a glitch-free performance.</p>
+                    <p><br></p>
+                    <h3>
+                        <p>Shop online for the best educational tablets</p>
+                    </h3>
+                    <p><b>Datawind Education Classes 1 to 4</b></p>
+                    <p><span>With this device, not only can you keep your kids away from distraction but you can also
+                            keep them informed and educated. Powered by an MTK 8312D single core processor, this is a
+                            great performer.&nbsp;</span><br></p>
+                    <p><br></p>
+                    <p><b>Datawind Education Classes KG to 2</b></p>
+                    <p>With this tablet, you can keep your toddler occupied while not letting him or her misuse the
+                        Internet. Teach your little one alphabets and numbers in a fun and an interesting manner with
+                        this educational device.</p>
+                    <p><br></p>
+                    <h3>
+                        <p>Advantages of buying tablets online</p>
+                    </h3>
+                    <p><b>Portability</b></p>
+                    <p>They’re not too small like your smartphones and not too big like your laptops, which make them
+                        ideal for travelling. Whether you’re commuting to work via cab or bus, or on a vacation, you can
+                        easily carry a tablet with you. What’s more, they comfortably fit in your palm which makes them
+                        ideal for work, college, trips, business meetings and so on. You can work on your presentation
+                        on the go, watch movies while travelling in public transport, reply to emails, and so much more
+                        easily.</p>
+                    <p><br></p>
+                    <p><b>Versatile</b></p>
+                    <p>Whether you want to work on important office assignments or want to help your kids with
+                        educational apps, a tablet is a must-have. They can be used for various purposes, such as
+                        business, academic and entertainment. For business purpose, you can make and share
+                        presentations, create documents, send emails, set reminders, organize your events and so on. For
+                        academics, you can take down notes, browse the internet for assignments and research, you can
+                        make presentations, download ebooks and so on. And, for entertainment, you can watch movies,
+                        listen to songs, play games, stay connected on social media, and download apps.</p>
+                    <p><br></p>
+                    <p><b>User-friendly</b></p>
+                    <p>These gadgets are designed in such a way that they provide ease of operation - they can be used
+                        by all age groups and come with innovative features like gesture recognition, pen recognition,
+                        handwriting recognition and so on.</p>
+                    <p><br></p>
+                    <p><b>Faster and Efficient</b></p>
+                    <p>Unlike laptops, tabs switch on faster and work more efficiently. They are powered by powerful
+                        processors that help complete your task faster.</p>
+                    <p><br></p>
+                    <h3>
+                        <p>Things to Look for While Buying a Tablet</p>
+                    </h3>
+                    <p>Operating system: One of the most important things to consider while buying a tablet online is
+                        its operating system. This alone will help narrow down your choices. If you want an Android tab,
+                        you can look for the same online. If you want an Apple iPad, then you can go ahead and browse
+                        for iPads. Both, Android tabs and iPads offer great user experience. It depends on your choice
+                        as to which you will need. With iPads the choice is limited. However, it’s not the same with
+                        Android devices as there are various brands that manufacture tablets with Android OS.</p>
+                    <p><br></p>
+                    <p><b>Processor:</b> We’re sure you don’t like getting stuck while doing something important or
+                        while switching between apps. Well, that’s what will happen if your tablet is not powered by a
+                        powerful processor. For the best performance, make sure you pick one with a super-fast processor
+                        that will enhance user experience.</p>
+                    <p><br></p>
+                    <p><b>Storage space</b>: There’s nothing more annoying than running out of storage space. With a
+                        tablet that has adequate storage space, you can stay assured of your entertainment as you can
+                        store all your multimedia files conveniently.</p>
+                    <p><br></p>
+                    <p><b>Battery</b>: What’s the point of carrying a tab around when it doesn't have long battery life?
+                        Always make sure you pick one with a powerful battery that serves you all day long.</p>
+                    <p><br></p>
+                    <p><span>Buy tablets online and take your entertainment experience to the next level. Take a look at
+                            the different models of tablets, compare two or more models in terms of their features,
+                            specifications and price, and buy the best tablet that suits your needs, requirements and
+                            budget. You can also read tablet reviews online to get a better idea about these devices.
+                            That’s not it, you can also expect fast delivery, safe payment options, and easy return
+                            policies, thanks to online shopping.</span></p>
+                    <p></p>
+                    <p><br></p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="mainfooter">
+            <div class="subfooter row">
+                <div class="d-flex">
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;">ABOUT</div>
+                        <a class="link-light" href="contactus">Contact Us</a>
+                        <a class="link-light" href="aboutus">About Us</a>
+                        <a class="link-light" href="careers">Careers</a>
+                        <a class="link-light" href="stories">PleasurePlaza Stories</a>
+                        <a class="link-light" href="press">Press</a>
+                        <a class="link-light" href="wholesales">PleasurePlaza Wholesales</a>
+                        <a class="link-light" href="info">Corporate Information</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> HELP</div>
+                        <a class="link-light" href="payments">Payments</a>
+                        <a class="link-light" href="shipping">Shipping</a>
+                        <a class="link-light" href="c&r">Cancellation & Returns</a>
+                        <a class="link-light" href="faq">FAQ</a>
+                        <a class="link-light" href="report">Report Infringement</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> POLICY</div>
+                        <a class="link-light" href="policy">Return Policy</a>
+                        <a class="link-light" href="toc">Terms Of Use</a>
+                        <a class="link-light" href="security">Security</a>
+                        <a class="link-light" href="privacy">Privacy</a>
+                        <a class="link-light" href="sitemap">Sitemap</a>
+                        <a class="link-light" href="epr">EPR Compliance</a>
+                    </div>
+                    <div class="cols d-flex flex-column" style="width: 209.55px;">
+                        <div class="head" style="height: 16.8px;"> SOCIAL</div>
+                        <a class="link-light" href="fb">Facebook</a>
+                        <a class="link-light" href="twitter">Twitter</a>
+                        <a class="link-light" href="yt">YouTube</a>
+                        <a class="link-light" href="ig">Instagram</a>
+
+                    </div>
+                    <div>
+                        <div class="d-flex flex-column">
+                            <div class="para2-footer">
+                                <div class="head " style="height:16.8px;">
+                                    <span>Mail Us:</span>
+                                </div>
+
+                                <div class="para-footer">
+                                    <p>PleasurePlaza Internet Private Limited,</p>
+                                    <p>Buildings Alyssa, Begonia &</p>
+                                    <p>Clove Embassy Tech Village,</p>
+                                    <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                    <p>Bengaluru, 560103,</p>
+                                    <p>Karnataka, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 198.8px;
+                    width: 246.04px;">
+
+                        <div class="para3-footer d-flex flex-column">
+                            <div class="head" style="height:16.8px;">
+                                <span>Registered Office Address:</span>
+                            </div>
+
+                            <div class="para-footer">
+                                <p>PleasurePlaza Internet Private Limited,</p>
+                                <p>Buildings Alyssa, Begonia &</p>
+                                <p>Clove Embassy Tech Village,</p>
+                                <p>Outer Ring Road, Devarabeesanahalli Village,</p>
+                                <p>Bengaluru, 560103,</p>
+                                <p>Karnataka, India</p>
+                                <p>CIN : U51109KA2012PTC066107</p>
+                                <p>Telephone: 1800 202 9898</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="lower-footer">
+                <div>
+                    <img src="{%static 'images/t1.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="sell">&nbsp Sell On PleasurePlaza</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t2.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="ad">&nbsp Advertise</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t3.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="gift">&nbsp Gift Card</a>
+                </div>
+                <div>
+                    <img src="{%static 'images/t4.svg'%}" style="margin-bottom: 4px;">
+                    <a class="link-light2 link2" href="help-center">&nbsp Help Center</a>
+                </div>
+                <span class="copyright">
+                    ©
+                    <!--  -->
+                    2007-2021
+                    <!--  -->
+                    <span>PleasurePlaza.com</span>
+                </span>
+                <img src="{%static 'images/t6.svg'%}">
+            </div>
+        </div>
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    </body>
+
+</html>
